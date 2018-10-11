@@ -327,24 +327,19 @@
 </li>
 <li><p>也可以选择先下载安装msys2，然后使用msys2提供的bash环境完成更多的东西，包括git的下载使用。其实，git for windows内置了一个msys2。</p>
 <h5 id="使用msys2下载git："><a href="#使用msys2下载git：" class="headerlink" title="使用msys2下载git："></a>使用msys2下载git：</h5><ol>
-<li><p>下载msys2，由于墙的存在，选择官网下载会非常慢，推荐在开源镜像站找资源下载。<br><a href="https://mirrors.tuna.tsinghua.edu.cn/msys2/distrib/msys2-x86_64-latest.exe" target="_blank" rel="noopener">镜像下载链接</a></p>
+<li><p>下载msys2，由于墙的存在，选择官网下载会非常慢，推荐在开源镜像站找资源下载。<br><strong><a href="https://mirrors.tuna.tsinghua.edu.cn/msys2/distrib/msys2-x86_64-latest.exe" target="_blank" rel="noopener">镜像下载链接</a></strong></p>
 </li>
 <li><p>添加一个环境变量HOME，设置为<em><strong>C:\msys64\home\用户名</strong></em>，以便访问编译配置文件。</p>
 </li>
 <li><p>修改配置文件，找到<em><strong>C:\msys64\etc\pacman.d</strong></em>目录下的三个配置文件，依次修改</p>
 <p><img src="/2018/10/12/git配置/QQ图片20181011231004.png" alt="配置文件"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Server = http://mirrors.ustc.edu.cn/msys2/mingw/i686</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Server = http://mirrors.ustc.edu.cn/msys2/mingw/i686   <span class="comment">#mingw32</span></span><br><span class="line">Server = http://mirrors.ustc.edu.cn/msys2/mingw/x86_64 <span class="comment">#mingw64</span></span><br><span class="line">Server = http://mirrors.ustc.edu.cn/msys2/msys/<span class="variable">$arch</span>   <span class="comment">#msys</span></span><br></pre></td></tr></table></figure>
 </li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Server = http://mirrors.ustc.edu.cn/msys2/mingw/x86_64</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Server = http://mirrors.ustc.edu.cn/msys2/msys/$arch</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>打开msys2，输入<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pacman -Sy	<span class="comment">#同步本地软件数据库</span></span><br></pre></td></tr></table></figure>
+<li><p>打开msys2，输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ pacman -Sy	<span class="comment">#同步本地软件数据库</span></span><br><span class="line">$ pacman -Su	<span class="comment">#更新核心软件包</span></span><br></pre></td></tr></table></figure>
 </li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pacman -Su	<span class="comment">#更新核心软件包</span></span><br></pre></td></tr></table></figure>
-<ol start="5">
-<li>安装git<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pacman -S git</span><br></pre></td></tr></table></figure>
+<li><p>安装git</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pacman -S git</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p><strong>ps:</strong><br>安装后的git，你在本机的cmd窗口输出git version会提示不是内部或外部命令,也不是可运行的程序，那是因为msys2的虚拟环境中的path不是本机的path，相当于git是安装在虚拟环境的一个目录下，但这并不影响git的使用。而git bash的path用链接链到了你windows的users目录，当然这会引发一些问题。但是，我上传博客的时候还是使用的git bash，因为msys2下的生成的ssh目录路径并不是本机的，所以上传到服务器的时候会出现问题。</p>
