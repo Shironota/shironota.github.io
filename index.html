@@ -229,6 +229,166 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/29/RasPi-3b-安装arch-Linux-arm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lyx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Piccolo_Devil">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/29/RasPi-3b-安装arch-Linux-arm/" itemprop="url">RasPi 3b 安装arch Linux arm</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-29T10:57:10+08:00">
+                2018-10-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="准备工具"><a href="#准备工具" class="headerlink" title="准备工具"></a>准备工具</h3><ul>
+<li>树莓派</li>
+<li>sd卡、读卡器</li>
+<li>网线</li>
+<li>电源线</li>
+</ul>
+<h3 id="烧录系统"><a href="#烧录系统" class="headerlink" title="烧录系统"></a>烧录系统</h3><p>首先是要将树莓派要使用的系统烧录进sd卡，这里选择的是arch Linux arm</p>
+<blockquote>
+<p>Arch Linux ARM<br>著名轻量系统Arch Linux在ARM架构上的移植。注重对于开发者的简洁，任何可有可无的软件一律不自带。仅有命令行界面，不建议初学者使用。Arch Linux的软件策略是相当激进的，使用Arch Linux能用到最新的软件包，但也需要承担尝鲜可能的风险。</p>
+</blockquote>
+<p>正好之前在虚拟机里装好了manjaro系统，manjaro也是一款基于arch Linux的系统。现在只需要将sd卡连入manjaro，然后将系统烧录进sd卡即可。</p>
+<blockquote>
+<p><strong>注意</strong><br>虚拟机对usb3.0的兼容性普遍来说不太好，刚开始使用3.0接口的读卡器插入，出现设备在本机和虚拟机交替识别的情况，导致识别冲突无法正常使用。尝试之后发现2.0接口的不会出现这种情况。</p>
+</blockquote>
+<h4 id="sd卡分区"><a href="#sd卡分区" class="headerlink" title="sd卡分区"></a>sd卡分区</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo fdisk -l	<span class="comment">#列出所有分区表</span></span><br></pre></td></tr></table></figure>
+<p>找到sd卡盘符对应的设备名sdx（这里是sdb1）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo fdisk /dev/sdb1</span><br></pre></td></tr></table></figure>
+<p>在fdisk提示命令下进行下列操作：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">o	<span class="comment">#删除全部分区</span></span><br><span class="line">n	<span class="comment">#新建分区</span></span><br><span class="line">p	<span class="comment">#选择为主分区，接下来的主分区设置直接回车使用默认值，最后输入+100M设置结束</span></span><br><span class="line">t</span><br><span class="line">c	<span class="comment">#设置刚才的主分区类型为W95 FAT32（LBA）</span></span><br><span class="line">n</span><br><span class="line">p</span><br><span class="line">2	<span class="comment">#选择第2个分区，然后回车使用默认值完成第2个分区的设置</span></span><br><span class="line">w	<span class="comment">#写入保存，退出fdisk</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="挂载与安装"><a href="#挂载与安装" class="headerlink" title="挂载与安装"></a>挂载与安装</h4><blockquote>
+<p>挂载：把硬盘设备与某个目录相关联，关联的动作为挂载</p>
+</blockquote>
+<p>将第1分区格式化并挂载到boot<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mkfs.vfat /dev/sdb1</span><br><span class="line">$ mkdir boot</span><br><span class="line">$ mount /dev/sdb1 boot</span><br></pre></td></tr></table></figure></p>
+<p>将第2分区格式化并挂载到root<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mkfs.ext4 /dev/sdb2</span><br><span class="line">$ mkdir root</span><br><span class="line">$ mount /dev/sdb2 root</span><br></pre></td></tr></table></figure></p>
+<p>下载arch Linux arm系统并解压到sd卡<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ wget https://mirrors.tuna.tsinghua.edu.cn/archlinuxarm/os/ArchLinuxARM-rpi-3-latest.tar.gz</span><br><span class="line">$ sudo tar -xzvpf ArchLinuxARM-rpi-3-latest.tar.gz -C root</span><br><span class="line">$ sync</span><br><span class="line">$ sudo mv root/boot/* boot</span><br><span class="line">$ sudo umount boot root</span><br></pre></td></tr></table></figure></p>
+<h3 id="树莓派连接笔记本"><a href="#树莓派连接笔记本" class="headerlink" title="树莓派连接笔记本"></a>树莓派连接笔记本</h3><p>将烧录好系统的sd卡插入树莓派然后启动树莓派，笔记本上设置好WiFi网络共享，然后通过网线连接树莓派和笔记本。</p>
+<blockquote>
+<p><strong>注意</strong><br>树莓派系统正常启动的话，电源红灯旁边会有一个绿色的灯亮起，若启动树莓派时绿灯未亮，则表明树莓派未启动系统，可能是之前烧录系统出错。</p>
+</blockquote>
+<h4 id="ssh连接"><a href="#ssh连接" class="headerlink" title="ssh连接"></a>ssh连接</h4><p>这里选择了一个ssh连接工具：Xshell<br>默认的用户名为alarm，密码为root<br>树莓派每次启动都会有一个ip，在命令行工具中输入arp -a查看并找到对应ip地址登录连接即可。<br><img src="/2018/10/29/RasPi-3b-安装arch-Linux-arm/a.png" alt="a"><br><img src="/2018/10/29/RasPi-3b-安装arch-Linux-arm/b.png" alt="b"></p>
+<h4 id="改源更新安装"><a href="#改源更新安装" class="headerlink" title="改源更新安装"></a>改源更新安装</h4><p>改源<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ su root	<span class="comment">#切换成管理员</span></span><br><span class="line">$ vi /etc/pacman.d/mirrorlist</span><br></pre></td></tr></table></figure></p>
+<p>将mirrorlist内容更换为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxarm/$repo/os/$arch</span><br></pre></td></tr></table></figure></p>
+<p>更新软件源<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pacman -Syyu</span><br></pre></td></tr></table></figure></p>
+<p>安装sudo<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pacman -S sudo</span><br></pre></td></tr></table></figure></p>
+<p>安装sudo时报错信息<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">warning: Public keyring not found; have you run <span class="string">'pacman-key --init'</span>?</span><br></pre></td></tr></table></figure></p>
+<p>解决措施<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ pacman-key --init</span><br><span class="line">$ pacman -S sudo</span><br></pre></td></tr></table></figure></p>
+<p>继续报错<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error: failed to commit transaction (invalid or corrupted package (PGP signature))</span><br></pre></td></tr></table></figure></p>
+<p>解决措施<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ pacman-key --populate</span><br><span class="line">$ pacman -S sudo	<span class="comment">#成功</span></span><br></pre></td></tr></table></figure></p>
+<p>安装screenfetch<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pacman -S screenfetch</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2018/10/29/RasPi-3b-安装arch-Linux-arm/c.png" alt="c"></p>
+<hr>
+<p>后续配置完善中……</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/26/C指针/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1029,7 +1189,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1051,7 +1211,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
