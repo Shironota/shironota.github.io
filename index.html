@@ -249,6 +249,154 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/11/Java面向对象基本语法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lyx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Piccolo_Devil">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/11/Java面向对象基本语法/" itemprop="url">Java面向对象基本语法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-11T23:25:44+08:00">
+                2018-12-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          类和对象继承和多态抽象类和接口异常处理
+          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/12/11/Java面向对象基本语法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/09/UML类图/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -342,127 +490,21 @@
       
         
           
-            <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><blockquote>
-<p>类图模拟系统的静态结构，它显示了类，对象，属性和操作之间的关系。</p>
-</blockquote>
-<h3 id="元素"><a href="#元素" class="headerlink" title="元素"></a>元素</h3><h4 id="类-Class"><a href="#类-Class" class="headerlink" title="类(Class)"></a>类(Class)</h4><blockquote>
-<p>类表示具有共同特征的实体的抽象。 类图主要是用来显示系统中的类、接口以及它们之间的静态结构和关系的一种静态模型。</p>
-</blockquote>
-<p>类图的3个基本组件：<strong>类名、属性、方法 </strong><br>用分隔的矩形表示，将类的名称放在第一个分区（居中，粗体，大写），第二个分区列出属性（左对齐，不粗体，小写），第三个分区写入操作（方法）。<br><img src="/2018/12/09/UML类图/001.png" alt="001"></p>
-<h4 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h4><p><img src="/2018/12/09/UML类图/007.png" alt="007"></p>
-<h4 id="Visibility"><a href="#Visibility" class="headerlink" title="Visibility"></a>Visibility</h4><blockquote>
-<p>根据访问修饰符（visibility），类具有不同的访问级别</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Marker</th>
-<th style="text-align:left">Visibility</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">+</td>
-<td style="text-align:left">public(公有)</td>
-</tr>
-<tr>
-<td style="text-align:center">-</td>
-<td style="text-align:left">private(私有)</td>
-</tr>
-<tr>
-<td style="text-align:center">#</td>
-<td style="text-align:left">protected(保护，对子类可见)</td>
-</tr>
-<tr>
-<td style="text-align:center">~</td>
-<td style="text-align:left">package(对包内其他成员可见)</td>
-</tr>
-<tr>
-<td style="text-align:center">/</td>
-<td style="text-align:left">derived(推导，由其他属性推导得出，不需要直接给定其值)</td>
-</tr>
-</tbody>
-</table>
-<h4 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h4><blockquote>
-<p>用来表示各种非局部的关系，如关联路径上的限制</p>
-</blockquote>
-<p>表示方法：将约束放在花括号{}内</p>
-<h3 id="类间关系"><a href="#类间关系" class="headerlink" title="类间关系"></a>类间关系</h3><h4 id="泛化-继承-Generalization"><a href="#泛化-继承-Generalization" class="headerlink" title="泛化/继承(Generalization)"></a>泛化/继承(Generalization)</h4><blockquote>
-<p>一种继承关系，一般与特殊、父类与子类的关系。是对象之间耦合度最大的一种关系</p>
-</blockquote>
-<p>表示方法：带空心三角形的实线，从子类指向父类</p>
-<p><img src="/2018/12/09/UML类图/005.png" alt="005"></p>
-<h4 id="实现-Realization"><a href="#实现-Realization" class="headerlink" title="实现(Realization)"></a>实现(Realization)</h4><blockquote>
-<p>接口与接口之间可以有类与类之间类似的继承和依赖关系。同时接口与类之间还存在一种实现（Realization）关系，在这种关系中，类实现了接口中声明的方法</p>
-</blockquote>
-<p>表示方法：带空心三角形的虚线，从实现类指向接口</p>
-<p><img src="/2018/12/09/UML类图/006.png" alt="006"></p>
-<h4 id="依赖-Dependency"><a href="#依赖-Dependency" class="headerlink" title="依赖(Dependency)"></a>依赖(Dependency)</h4><blockquote>
-<p>最弱的一种关联方式，临时性的关联</p>
-</blockquote>
-<p>表示方法：带箭头的虚线，从使用类指向被依赖的类</p>
-<h4 id="关联-Associations"><a href="#关联-Associations" class="headerlink" title="关联(Associations)"></a>关联(Associations)</h4><blockquote>
-<p>关联表示类之间的静态关系。关联关系使一个类知道另外一个类的属性和方法，关联的两个对象在生命期问题上没有任何约束，可随时解除或关联；关联是共享的，被关联的对象还可以再被其他对象关联。关联又分为一般关联、聚合关联和组合关联。</p>
-</blockquote>
-<p>表示方法：带箭头的实线，箭头从使用类指向被关联的类</p>
-<p>形式：</p>
-<ul>
-<li>单向关联</li>
-<li>双向关联</li>
-<li>自关联<br><img src="/2018/12/09/UML类图/004.png" alt="004"></li>
-<li>多重性关联(Multiplicity)<blockquote>
-<p>在关联的末尾放置多重性符号，表示链接到另一个类的一个实例的类的实例数。就是代表有多少个关联对象存在。</p>
-</blockquote>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>符号</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0..1</td>
-<td>zero or one</td>
-</tr>
-<tr>
-<td>1</td>
-<td>one only</td>
-</tr>
-<tr>
-<td>0..*</td>
-<td>0 or more</td>
-</tr>
-<tr>
-<td>1..*  或 *</td>
-<td>1 or more</td>
-</tr>
-<tr>
-<td>n</td>
-<td>only n ( n &gt; 1 )</td>
-</tr>
-<tr>
-<td>0..n</td>
-<td>zero to n ( n &gt; 1 )</td>
-</tr>
-<tr>
-<td>1..n</td>
-<td>one to n ( n &gt; 1 )</td>
-</tr>
-</tbody>
-</table>
-<h4 id="聚合-Aggregation"><a href="#聚合-Aggregation" class="headerlink" title="聚合(Aggregation)"></a>聚合(Aggregation)</h4><blockquote>
-<p>一种不稳定的包含关系，较强于一般关联，有整体和局部的关系，整体不存在时局部可以单独存在。eg：蚂蚁与蚁群，蚂蚁离开蚁群可以单独存在。</p>
-</blockquote>
-<p>表示方法：空心菱形，从局部指向整体<br><img src="/2018/12/09/UML类图/002.png" alt="002"></p>
-<h4 id="组合-Composition"><a href="#组合-Composition" class="headerlink" title="组合(Composition)"></a>组合(Composition)</h4><blockquote>
-<p>一种强烈的包含关系，局部不能脱离整体而存在，一旦整体对象不存在了，局部也随之消亡。eg：部门不能脱离公司而存在。</p>
-</blockquote>
-<p>表示方法：实心菱形，从局部指向整体<br><img src="/2018/12/09/UML类图/003.png" alt="003"></p>
+          概念
+类图模拟系统的静态结构，它显示了类，对象，属性和操作之间的关系。
 
-          
+元素类(Class)
+类表示具有共同特征的实体的抽象。 类图主要是用来显示系统中的类、接口以及它们之间的静态结构和关系的一种静态模型。
+
+类图的3个基本组件：类名、属性、方法 用分隔的矩形表示，将类的名称放在第一个分区（居中，
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/12/09/UML类图/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -602,36 +644,21 @@
       
         
           
-            <h3 id="UML"><a href="#UML" class="headerlink" title="UML"></a>UML</h3><blockquote>
-<p>Unified Modeling Language，统一建模语言，是一种使用图表集可视化软件程序的方法。</p>
-</blockquote>
-<p>ps：个人理解只是一种程序员交流的方式工具，避免混乱，没必要严格的追求精准规范…</p>
-<h3 id="图分类"><a href="#图分类" class="headerlink" title="图分类"></a>图分类</h3><p>当前的UML标准一共有13种不同类型的图，可将它们分为两类：</p>
-<ul>
-<li><p>结构图（structural diagrams） </p>
-<ul>
-<li>类图(Class diagram)</li>
-<li>包图(Package diagram)</li>
-<li>对象图(Object diagram)</li>
-<li>组件图(Component diagram)</li>
-<li>复合结构图(Composite structure diagram)</li>
-<li>部署图(Deployment diagram)</li>
-</ul>
-</li>
-<li><p>行为(或称交互)图（behavioral or interaction diagrams）</p>
-<ul>
-<li>活动图(Activity diagram)</li>
-<li>时序图(又称顺序图)(Sequence diagram)</li>
-<li>用例图(Use case diagram)</li>
-<li>状态图(State diagram)</li>
-<li>通信图(Communication diagram)</li>
-<li>交互概述图(Interaction overview diagram)</li>
-<li>Timing diagram</li>
-</ul>
-</li>
-</ul>
+          UML
+Unified Modeling Language，统一建模语言，是一种使用图表集可视化软件程序的方法。
 
-          
+ps：个人理解只是一种程序员交流的方式工具，避免混乱，没必要严格的追求精准规范…
+图分类当前的UML标准一共有13种不同类型的图，可将它们分为两类：
+
+结构图（structural d
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/12/09/UML概述/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -771,30 +798,19 @@
       
         
           
-            <blockquote>
-<p>数据模型是对现实世界数据特征的抽象，是用来描述数据、组织数据和对数据进行操作的，是现实世界的模拟<br>现有的数据库系统均是基于某种数据模型的，<strong>数据模型是数据库系统的核心和基础</strong><br>根据模型应用的不同目的，可将数据模型分为两大类，第一类是<strong>概念模型</strong>，第二类是<strong>逻辑模型和物理模型</strong></p>
-</blockquote>
-<p><img src="/2018/12/08/数据模型/001.png" alt="001"></p>
-<h4 id="概念模型"><a href="#概念模型" class="headerlink" title="概念模型"></a>概念模型</h4><p>概念模型用于信息世界的建模，是现实世界到信息世界的第一层抽象</p>
-<p>信息世界中的基本概念：</p>
-<blockquote>
-<p>实体(entity)、属性(attribute)、码(key)、实体型(entity type)、实体集(entity set)、联系(relationship)</p>
-</blockquote>
-<p>概念模型的表示方法很多，最常用的是P.P.S.Chen于1976年提出的<strong>E-R模型</strong></p>
-<h4 id="逻辑模型"><a href="#逻辑模型" class="headerlink" title="逻辑模型"></a>逻辑模型</h4><p>主要包括：</p>
-<blockquote>
-<p>层次模型、网状模型、关系模型、面向对象数据模型、对象关系数据模型、半结构化数据模型等</p>
-</blockquote>
-<p>其中层次模型和网状模型统称为格式化模型</p>
-<p><strong>发展历程：</strong><br>20世纪70年代至80年代初非常流行格式化模型的数据库系统，但这种数据库系统在使用和实现上都要涉及数据库物理层的复杂结构，后逐渐被淘汰。20世纪80年代以来，面向对象的方法和技术在计算机的各个领域都产生了深远的影响，由此发展出了对象关系数据模型。随着Internet的迅速发展，Web上的各种半结构化、非结构化数据成为了重要的数据来源，产生了以XML为代表的半结构化数据模型和非结构化数据模型。现如今关系数据库成为了最重要、应用最广泛的数据库系统。</p>
-<h4 id="物理模型"><a href="#物理模型" class="headerlink" title="物理模型"></a>物理模型</h4><p>物理模型是对数据最底层的抽象，它描述数据在系统内部的表现方式和存取方法，或在磁盘或磁带上的存储方式和存取方法，是面向计算机系统的。</p>
-<h4 id="数据模型的组成要素"><a href="#数据模型的组成要素" class="headerlink" title="数据模型的组成要素"></a>数据模型的组成要素</h4><ol>
-<li><strong>数据结构</strong><br> 描述数据库的组成对象以及对象之间的联系，是所描述的对象类型的集合，是对系统静态特性的描述</li>
-<li><strong>数据操作</strong><br> 对数据库中各种对象（型）和实例（值）允许执行的操作的集合，包括操作及有关的操作规则，是对系统动态特性的描述</li>
-<li><strong>数据的完整性约束</strong><br> 一组完整性规则</li>
-</ol>
-
           
+数据模型是对现实世界数据特征的抽象，是用来描述数据、组织数据和对数据进行操作的，是现实世界的模拟现有的数据库系统均是基于某种数据模型的，数据模型是数据库系统的核心和基础根据模型应用的不同目的，可将数据模型分为两大类，第一类是概念模型，第二类是逻辑模型和物理模型
+
+
+概念模型概念模型用于信息世界的建
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/12/08/数据模型/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -934,104 +950,23 @@
       
         
           
-            <h4 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h4><ul>
-<li>定义：描述事物的符号记录</li>
-<li>可以是数字、文字、图形、图像、音频、视频等各种表现形式</li>
-<li>数据与其语义是不可分的</li>
-<li>记录是计算机中表示和存储数据的一种格式或一种方法</li>
-</ul>
-<h4 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h4><ul>
-<li>数据库是长期储存在计算机内、有组织的、可共享的大量数据的集合</li>
-<li>数据库中的数据按一定的数据模型组织、描述和存储，具有<strong>较小的冗余度</strong>、<strong>较高的数据独立性</strong>和<strong>易扩展性</strong>，并可为各种用户<strong>共享</strong></li>
-<li>数据库数据具有<strong>永久存储</strong>、<strong>有组织</strong>和<strong>可共享</strong>三个基本特点</li>
-</ul>
-<h4 id="数据库管理系统"><a href="#数据库管理系统" class="headerlink" title="数据库管理系统"></a>数据库管理系统</h4><ul>
-<li>DBMS是位于用户和操作系统之间的一层数据管理软件，和操作系统一样是计算机的基础软件</li>
-<li>主要功能：<ul>
-<li>数据定义功能</li>
-<li>数据组织、存储和管理</li>
-<li>数据操纵功能</li>
-<li>数据库的事务管理和运行管理</li>
-<li>数据库的建立和维护功能</li>
-<li>其他功能</li>
-</ul>
-</li>
-</ul>
-<h4 id="数据库系统"><a href="#数据库系统" class="headerlink" title="数据库系统"></a>数据库系统</h4><p>数据库系统是由数据库、数据库管理系统（及其应用开发工具）、应用程序和数据库管理员组成的存储、管理、处理和维护数据的系统</p>
-<h4 id="数据管理技术的产生和发展"><a href="#数据管理技术的产生和发展" class="headerlink" title="数据管理技术的产生和发展"></a>数据管理技术的产生和发展</h4><table>
-<thead>
-<tr>
-<th style="text-align:left"></th>
-<th style="text-align:left">人工管理阶段</th>
-<th style="text-align:left">文件系统阶段</th>
-<th style="text-align:left">数据库系统阶段</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">应用背景</td>
-<td style="text-align:left">科学计算</td>
-<td style="text-align:left">科学计算、数据管理</td>
-<td style="text-align:left">大规模数据管理</td>
-</tr>
-<tr>
-<td style="text-align:left">硬件背景</td>
-<td style="text-align:left">无直接存取存储设备</td>
-<td style="text-align:left">磁盘、磁鼓</td>
-<td style="text-align:left">大容量磁盘、磁盘阵列</td>
-</tr>
-<tr>
-<td style="text-align:left">软件背景</td>
-<td style="text-align:left">没有操作系统</td>
-<td style="text-align:left">有文件系统</td>
-<td style="text-align:left">有数据库管理系统</td>
-</tr>
-<tr>
-<td style="text-align:left">处理方式</td>
-<td style="text-align:left">批处理</td>
-<td style="text-align:left">联机实时处理、批处理</td>
-<td style="text-align:left">联机实时处理、分布处理、批处理</td>
-</tr>
-<tr>
-<td style="text-align:left">数据的管理者</td>
-<td style="text-align:left">用户（程序员）</td>
-<td style="text-align:left">文件系统</td>
-<td style="text-align:left">数据库管理系统</td>
-</tr>
-<tr>
-<td style="text-align:left">数据面向的对象</td>
-<td style="text-align:left">某一应用程序</td>
-<td style="text-align:left">某一应用</td>
-<td style="text-align:left">现实世界（部门、企业）</td>
-</tr>
-<tr>
-<td style="text-align:left">数据的共享程度</td>
-<td style="text-align:left">无共享，冗余度极大</td>
-<td style="text-align:left">共享度差，冗余度大</td>
-<td style="text-align:left">共享度高，冗余度小</td>
-</tr>
-<tr>
-<td style="text-align:left">数据的独立性</td>
-<td style="text-align:left">不独立，完全依赖于程序</td>
-<td style="text-align:left">独立性差</td>
-<td style="text-align:left">具有高度的物理独立性和一定的逻辑独立性</td>
-</tr>
-<tr>
-<td style="text-align:left">数据的结构性</td>
-<td style="text-align:left">无结构</td>
-<td style="text-align:left">记录内有结构、整体无结构</td>
-<td style="text-align:left">整体结构化，用数据模型描述</td>
-</tr>
-<tr>
-<td style="text-align:left">数据控制能力</td>
-<td style="text-align:left">应用程序自己控制</td>
-<td style="text-align:left">应用程序自己控制</td>
-<td style="text-align:left">由数据库管理系统提供数据安全性、完整性、并发控制和恢复能力</td>
-</tr>
-</tbody>
-</table>
+          数据
+定义：描述事物的符号记录
+可以是数字、文字、图形、图像、音频、视频等各种表现形式
+数据与其语义是不可分的
+记录是计算机中表示和存储数据的一种格式或一种方法
 
-          
+数据库
+数据库是长期储存在计算机内、有组织的、可共享的大量数据的集合
+数据库中的数据按一定的数据模型组织、描述和存储，具有较小的冗余度、
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/12/08/数据库的基本概念/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1171,9 +1106,16 @@
       
         
           
-            <p><strong>1.设置主题风格</strong><br>找到目录<strong><em>themes/next/_config.yml</em></strong>，搜索关键字scheme，这里用的是sublime，搜索关键字的快捷键是<strong>ctrl+F</strong></p>
+          1.设置主题风格找到目录themes/next/_config.yml，搜索关键字scheme，这里用的是sublime，搜索关键字的快捷键是ctrl+F
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/11/25/博客美化/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1313,15 +1255,16 @@
       
         
           
-            <p><strong>导航栏html代码</strong></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"navigation"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"first.html"</span> <span class="attr">title</span>=<span class="string">"HTML"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span>HTML<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"second.html"</span> <span class="attr">title</span>=<span class="string">"CSS"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span>CSS<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"third.html"</span> <span class="attr">title</span>=<span class="string">"Javascript"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span>JS<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong>导航栏css样式</strong></p>
-<p>方法一：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.navigation</span> &#123;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.navigation</span> <span class="selector-tag">ul</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.navigation</span> <span class="selector-tag">li</span> &#123;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.navigation</span> <span class="selector-tag">li</span>+<span class="selector-tag">li</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">70px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>方法二：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.navigation</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: table;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.navigation</span> <span class="selector-tag">li</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: table-cell;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.navigation</span> <span class="selector-tag">li</span>+<span class="selector-tag">li</span> &#123;</span><br><span class="line">    <span class="attribute">padding-left</span>: <span class="number">70px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>方法三：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.navigation</span> &#123;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.navigation</span>&gt;<span class="selector-tag">ul</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: -webkit-inline-box;</span><br><span class="line">    <span class="attribute">display</span>: -moz-inline-box;</span><br><span class="line">    <span class="attribute">display</span>: -ms-inline-flexbox;</span><br><span class="line">    <span class="attribute">display</span>: -webkit-inline-flex;</span><br><span class="line">    <span class="attribute">display</span>: inline-flex;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.navigation</span> <span class="selector-tag">li</span>+<span class="selector-tag">li</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">70px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>方法四：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.navigation</span> &#123;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.navigation</span>&gt;<span class="selector-tag">ul</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: -webkit-inline-box;</span><br><span class="line">    <span class="attribute">display</span>: -moz-inline-box;</span><br><span class="line">    <span class="attribute">display</span>: -ms-inline-flexbox;</span><br><span class="line">    <span class="attribute">display</span>: -webkit-inline-flex;</span><br><span class="line">    <span class="attribute">display</span>: inline-flex;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.navigation</span> <span class="selector-tag">li</span>+<span class="selector-tag">li</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">70px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
+          导航栏html代码
+1234567&lt;div class="navigation"&gt;        &lt;ul&gt;            &lt;li&gt;&lt;a href="first.html" title="HTML" target="_blank"&gt;HTML&lt
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/11/25/css导航栏水平居中/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1439,49 +1382,23 @@
       
         
           
-            <h3 id="准备工具"><a href="#准备工具" class="headerlink" title="准备工具"></a>准备工具</h3><ul>
-<li>树莓派</li>
-<li>sd卡、读卡器</li>
-<li>网线</li>
-<li>电源线</li>
-</ul>
-<h3 id="烧录系统"><a href="#烧录系统" class="headerlink" title="烧录系统"></a>烧录系统</h3><p>首先是要将树莓派要使用的系统烧录进sd卡，这里选择的是arch Linux arm</p>
-<blockquote>
-<p>Arch Linux ARM<br>著名轻量系统Arch Linux在ARM架构上的移植。注重对于开发者的简洁，任何可有可无的软件一律不自带。仅有命令行界面，不建议初学者使用。Arch Linux的软件策略是相当激进的，使用Arch Linux能用到最新的软件包，但也需要承担尝鲜可能的风险。</p>
-</blockquote>
-<p>正好之前在虚拟机里装好了manjaro系统，manjaro也是一款基于arch Linux的系统。现在只需要将sd卡连入manjaro，然后将系统烧录进sd卡即可。</p>
-<blockquote>
-<p><strong>注意</strong><br>虚拟机对usb3.0的兼容性普遍来说不太好，刚开始使用3.0接口的读卡器插入，出现设备在本机和虚拟机交替识别的情况，导致识别冲突无法正常使用。尝试之后发现2.0接口的不会出现这种情况。</p>
-</blockquote>
-<h4 id="sd卡分区"><a href="#sd卡分区" class="headerlink" title="sd卡分区"></a>sd卡分区</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo fdisk -l	<span class="comment">#列出所有分区表</span></span><br></pre></td></tr></table></figure>
-<p>找到sd卡盘符对应的设备名sdx（这里是sdb1）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo fdisk /dev/sdb1</span><br></pre></td></tr></table></figure>
-<p>在fdisk提示命令下进行下列操作：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">o	<span class="comment">#删除全部分区</span></span><br><span class="line">n	<span class="comment">#新建分区</span></span><br><span class="line">p	<span class="comment">#选择为主分区，接下来的主分区设置直接回车使用默认值，最后输入+100M设置结束</span></span><br><span class="line">t</span><br><span class="line">c	<span class="comment">#设置刚才的主分区类型为W95 FAT32（LBA）</span></span><br><span class="line">n</span><br><span class="line">p</span><br><span class="line">2	<span class="comment">#选择第2个分区，然后回车使用默认值完成第2个分区的设置</span></span><br><span class="line">w	<span class="comment">#写入保存，退出fdisk</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="挂载与安装"><a href="#挂载与安装" class="headerlink" title="挂载与安装"></a>挂载与安装</h4><blockquote>
-<p>挂载：把硬盘设备与某个目录相关联，关联的动作为挂载</p>
-</blockquote>
-<p>将第1分区格式化并挂载到boot<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mkfs.vfat /dev/sdb1</span><br><span class="line">$ mkdir boot</span><br><span class="line">$ mount /dev/sdb1 boot</span><br></pre></td></tr></table></figure></p>
-<p>将第2分区格式化并挂载到root<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mkfs.ext4 /dev/sdb2</span><br><span class="line">$ mkdir root</span><br><span class="line">$ mount /dev/sdb2 root</span><br></pre></td></tr></table></figure></p>
-<p>下载arch Linux arm系统并解压到sd卡<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ wget https://mirrors.tuna.tsinghua.edu.cn/archlinuxarm/os/ArchLinuxARM-rpi-3-latest.tar.gz</span><br><span class="line">$ sudo tar -xzvpf ArchLinuxARM-rpi-3-latest.tar.gz -C root</span><br><span class="line">$ sync</span><br><span class="line">$ sudo mv root/boot/* boot</span><br><span class="line">$ sudo umount boot root</span><br></pre></td></tr></table></figure></p>
-<h3 id="树莓派连接笔记本"><a href="#树莓派连接笔记本" class="headerlink" title="树莓派连接笔记本"></a>树莓派连接笔记本</h3><p>将烧录好系统的sd卡插入树莓派然后启动树莓派，笔记本上设置好WiFi网络共享，然后通过网线连接树莓派和笔记本。</p>
-<blockquote>
-<p><strong>注意</strong><br>树莓派系统正常启动的话，电源红灯旁边会有一个绿色的灯亮起，若启动树莓派时绿灯未亮，则表明树莓派未启动系统，可能是之前烧录系统出错。</p>
-</blockquote>
-<h4 id="ssh连接"><a href="#ssh连接" class="headerlink" title="ssh连接"></a>ssh连接</h4><p>这里选择了一个ssh连接工具：Xshell<br>默认的用户名为alarm，密码为root<br>树莓派每次启动都会有一个ip，在命令行工具中输入arp -a查看并找到对应ip地址登录连接即可。<br><img src="/2018/10/29/RasPi-3b-安装arch-Linux-arm/a.png" alt="a"><br><img src="/2018/10/29/RasPi-3b-安装arch-Linux-arm/b.png" alt="b"></p>
-<h4 id="改源更新安装"><a href="#改源更新安装" class="headerlink" title="改源更新安装"></a>改源更新安装</h4><p>改源<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ su root	<span class="comment">#切换成管理员</span></span><br><span class="line">$ vi /etc/pacman.d/mirrorlist</span><br></pre></td></tr></table></figure></p>
-<p>将mirrorlist内容更换为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxarm/$repo/os/$arch</span><br></pre></td></tr></table></figure></p>
-<p>更新软件源<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pacman -Syyu</span><br></pre></td></tr></table></figure></p>
-<p>安装sudo<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pacman -S sudo</span><br></pre></td></tr></table></figure></p>
-<p>安装sudo时报错信息<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">warning: Public keyring not found; have you run <span class="string">'pacman-key --init'</span>?</span><br></pre></td></tr></table></figure></p>
-<p>解决措施<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ pacman-key --init</span><br><span class="line">$ pacman -S sudo</span><br></pre></td></tr></table></figure></p>
-<p>继续报错<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error: failed to commit transaction (invalid or corrupted package (PGP signature))</span><br></pre></td></tr></table></figure></p>
-<p>解决措施<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ pacman-key --populate</span><br><span class="line">$ pacman -S sudo	<span class="comment">#成功</span></span><br></pre></td></tr></table></figure></p>
-<p>安装screenfetch<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pacman -S screenfetch</span><br></pre></td></tr></table></figure></p>
-<p><img src="/2018/10/29/RasPi-3b-安装arch-Linux-arm/c.png" alt="c"></p>
-<hr>
-<p>后续配置完善中……</p>
+          准备工具
+树莓派
+sd卡、读卡器
+网线
+电源线
 
-          
+烧录系统首先是要将树莓派要使用的系统烧录进sd卡，这里选择的是arch Linux arm
+
+Arch Linux ARM著名轻量系统Arch Linux在ARM架构上的移植。注重对于开发者的简洁，任何可有可无的软件一律不自带。仅有命令行界面，不建议
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/29/RasPi-3b-安装arch-Linux-arm/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1599,12 +1516,15 @@
       
         
           
-            <h3 id="1-什么是指针"><a href="#1-什么是指针" class="headerlink" title="1.什么是指针"></a>1.什么是指针</h3><p>从根本上看，指针（pointer）是一个值为内存地址的变量（或数据对象）。正如char类型变量的值是字符，int类型变量的值是整数，而指针类型变量的值是地址。类比一下，c语言的数组，它本身是一种类型，但具体又可以区分为int型数组、double型数组、char型数组等；同理指针本身是一种数据类型，但根据它的指向，又有int型指针、double型指针、char型指针等。其实数组声明后得到的那个变量就是指针变量。<br>计算机的硬件指令非常依赖地址，指针在某种程度上把想传达的指令以更接近机器的方式表达，因此使用指针能够使程序更加高效（但也可能会带来更多的麻烦）。</p>
-<h3 id="2-指针的基本概念与使用"><a href="#2-指针的基本概念与使用" class="headerlink" title="2.指针的基本概念与使用"></a>2.指针的基本概念与使用</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">exchange</span><span class="params">(<span class="keyword">int</span> *a, <span class="keyword">int</span> *b)</span></span>;	<span class="comment">//函数原型</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span>	<span class="comment">//函数定义</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp = a;</span><br><span class="line">    a = b;</span><br><span class="line">    b = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x = <span class="number">5</span>, y = <span class="number">10</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"before:\nx = %d\ty = %d\n"</span>, x, y);</span><br><span class="line">    exchange(&amp;x, &amp;y);	<span class="comment">//传递的是地址</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"after:\nx = %d\ty = %d\n"</span>, x, y);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> m = <span class="number">2</span>, n = <span class="number">6</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"before:\nm = %d\tn = %d\n"</span>, m, n);</span><br><span class="line">    swap(m,n);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"after:\nm = %d\tn = %d\n"</span>, m, n);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> *p;	<span class="comment">//声明一个指向int类型的指针（指针变量记得初始化，否则野指针带来的问题很大</span></span><br><span class="line">    p = &amp;x;	<span class="comment">//p指向x</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"p = %d\n"</span>, p);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"*p = %d\n"</span>, *p);	<span class="comment">//间接运算符*，也称解引用运算符，找出指针指向的值</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">exchange</span><span class="params">(<span class="keyword">int</span> *a, <span class="keyword">int</span> *b)</span>	<span class="comment">//a的值是&amp;x，a指向x，*a可以表示x的具体值</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp;</span><br><span class="line">    temp = *a;	<span class="comment">//因为要交换的是数值而不是地址，所以temp = *a</span></span><br><span class="line">    *a = *b;</span><br><span class="line">    *b = temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="3-指针和数组"><a href="#3-指针和数组" class="headerlink" title="3.指针和数组"></a>3.指针和数组</h3><p>数组名是数组首元素的地址<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> day[<span class="number">12</span>] = &#123;<span class="number">31</span>, <span class="number">28</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>&#125;;</span><br><span class="line">    <span class="keyword">if</span>(day == &amp;day[<span class="number">0</span>])</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">12</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Month %2d has %d days.\n"</span>, i + <span class="number">1</span>, *(day + i));</span><br><span class="line">            <span class="comment">//day是数组首元素地址，day+i是元素day[i]的地址</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>实际上，C语言标准在描述数组表示法时确实借助了指针，也就是说，定义day[n]的意思就是<em>(day+n)。可以认为</em>(day+n)的意思是“到内存的day位置，然后移动n个单元，检索储存在那里的值“。</p>
-<h3 id="4-指针操作"><a href="#4-指针操作" class="headerlink" title="4.指针操作"></a>4.指针操作</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> arr[<span class="number">5</span>] = &#123;<span class="number">100</span>, <span class="number">200</span>, <span class="number">300</span>, <span class="number">400</span>, <span class="number">500</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> *ptr1, *ptr2, *ptr3;</span><br><span class="line"></span><br><span class="line">    ptr1 = arr;</span><br><span class="line">    ptr2 = &amp;arr[<span class="number">2</span>];</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"ptr1 = %p, *ptr1 = %d, &amp;ptr1 = %p\n"</span>, ptr1, *ptr1, &amp;ptr1);</span><br><span class="line"></span><br><span class="line">    ptr3 = ptr1 + <span class="number">4</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"ptr1 + 4 = %p,*(ptr1 + 4) = %d\n"</span>, ptr1 + <span class="number">4</span>, *(ptr1 + <span class="number">4</span>));</span><br><span class="line">    ptr1++;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"ptr1 = %p, *ptr1 = %d, &amp;ptr1 = %p\n"</span>, ptr1, *ptr1, &amp;ptr1);</span><br><span class="line">    ptr2--;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"ptr2 = %p, *ptr2 = %d, &amp;ptr2 = %p\n"</span>, ptr2, *ptr2, &amp;ptr2);</span><br><span class="line">    --ptr1;</span><br><span class="line">    ++ptr2;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"ptr1 = %p, ptr2 = %p\n"</span>, ptr1, ptr2);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"ptr2 = %p, ptr1 = %p, ptr2 - ptr1 = %td\n"</span>, ptr2, ptr1, ptr2 - ptr1);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"ptr3 = %p, ptr3 - 2 = %p\n"</span>, ptr3, ptr3 - <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
+          1.什么是指针从根本上看，指针（pointer）是一个值为内存地址的变量（或数据对象）。正如char类型变量的值是字符，int类型变量的值是整数，而指针类型变量的值是地址。类比一下，c语言的数组，它本身是一种类型，但具体又可以区分为int型数组、double型数组、char型数组等；同理指针本身是一
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/26/C指针/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1722,202 +1642,19 @@
       
         
           
-            <h2 id="manjaro-xfce安装"><a href="#manjaro-xfce安装" class="headerlink" title="manjaro xfce安装"></a>manjaro xfce安装</h2><ul>
-<li><p>下载manjaro xfce镜像文件</p>
-<p>​    <a href="https://mirrors.tuna.tsinghua.edu.cn/manjaro-cd/archive/17.1.7/xfce/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/manjaro-cd/archive/17.1.7/xfce/</a></p>
-</li>
-<li><p>虚拟机安装manjaro，注意版本选择<strong>其他 Linux4.x 或更高版本内核 64位</strong>，还有注意的一点是<strong>内存至少选择2G，否则会卡在后续安装界面不动</strong></p>
-</li>
-<li><p>选择Boot之后，加载出桌面以及一个Manjaro的官方欢迎界面，选择Launch installer进行真正意义上的（傻瓜式）安装，完成后重启即可</p>
-</li>
-</ul>
-<h2 id="安装后的配置"><a href="#安装后的配置" class="headerlink" title="安装后的配置"></a>安装后的配置</h2><p>选择国内源并更新<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman-mirrors -c China</span><br></pre></td></tr></table></figure></p>
-<p>用vim编辑配置文件，在里面添加archlinuxcn源<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/pacman.config</span><br></pre></td></tr></table></figure></p>
-<p>这时发现并没有安装vim，用pacman安装一下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S vim</span><br></pre></td></tr></table></figure></p>
-<p>在pacman.config文件中添加下面语句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line">Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch</span><br></pre></td></tr></table></figure></p>
-<p>完成上面操作后,让本地的包数据库和远程的软件仓库同步<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -Syy</span><br></pre></td></tr></table></figure></p>
-<p>安装archlinuxcn-keyring,提供校验软件包的密钥<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S archlinuxcn-keyring</span><br></pre></td></tr></table></figure></p>
-<p>同步软件库并更新系统到最新状态<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -Syu</span><br></pre></td></tr></table></figure></p>
-<p>这时候出现了异常<br><img src="/2018/10/17/manjaro安装笔记/aa.png" alt="aa"></p>
-<p><strong>解决方案：</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -Qo /usr/lib/xfce4/thunar-archive-plugin/engrampa.tap</span><br><span class="line">$ sudo mv /usr/lib/xfce4/thunar-archive-plugin/engrampa.tap -vT /usr/lib/xfce4/thunar-archive-plugin/engrampa.tap.bak</span><br><span class="line">$ sudo pacman -Syu</span><br><span class="line">$ sudo rm -v /usr/lib/xfce4/thunar-archive-plugin/engrampa.tap.bak</span><br></pre></td></tr></table></figure></p>
-<p><img src="/2018/10/17/manjaro安装笔记/bb.png" alt="bb"></p>
-<p>到此，改源和更新的基本配置就完成了。</p>
+          manjaro xfce安装
+下载manjaro xfce镜像文件
+​    https://mirrors.tuna.tsinghua.edu.cn/manjaro-cd/archive/17.1.7/xfce/
 
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/12/git配置/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lyx">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Piccolo_Devil">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/12/git配置/" itemprop="url">git配置</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-12T00:54:20+08:00">
-                2018-10-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/git/" itemprop="url" rel="index">
-                    <span itemprop="name">git</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="git的下载安装"><a href="#git的下载安装" class="headerlink" title="git的下载安装"></a>git的下载安装</h2><ul>
-<li><p>windows下直接在官网下载安装git for windows。下载安装后得到一个git bash工具，使用git bash来执行一系列的git命令。</p>
-</li>
-<li><p>也可以选择先下载安装msys2，然后使用msys2提供的bash环境完成更多的东西，包括git的下载使用。其实，git for windows内置了一个msys2。</p>
-<h5 id="使用msys2下载git："><a href="#使用msys2下载git：" class="headerlink" title="使用msys2下载git："></a>使用msys2下载git：</h5><ol>
-<li><p>下载msys2，由于墙的存在，选择官网下载会非常慢，推荐在开源镜像站找资源下载。<br><strong><a href="https://mirrors.tuna.tsinghua.edu.cn/msys2/distrib/msys2-x86_64-latest.exe" target="_blank" rel="noopener">镜像下载链接</a></strong></p>
-</li>
-<li><p>添加一个环境变量HOME，设置为<em><strong>C:\msys64\home\用户名</strong></em>，以便访问编译配置文件。</p>
-</li>
-<li><p>修改配置文件，找到<em><strong>C:\msys64\etc\pacman.d</strong></em>目录下的三个配置文件，依次修改</p>
-<p><img src="/2018/10/12/git配置/QQ图片20181011231004.png" alt="配置文件"></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Server = http://mirrors.ustc.edu.cn/msys2/mingw/i686   <span class="comment">#mingw32</span></span><br><span class="line">Server = http://mirrors.ustc.edu.cn/msys2/mingw/x86_64 <span class="comment">#mingw64</span></span><br><span class="line">Server = http://mirrors.ustc.edu.cn/msys2/msys/<span class="variable">$arch</span>   <span class="comment">#msys</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>打开msys2，输入</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ pacman -Sy	<span class="comment">#同步本地软件数据库</span></span><br><span class="line">$ pacman -Su	<span class="comment">#更新核心软件包</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装git</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pacman -S git</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><strong>ps:</strong><br>安装后的git，你在本机的cmd窗口输出git version会提示不是内部或外部命令,也不是可运行的程序，那是因为msys2的虚拟环境中的path不是本机的path，相当于git是安装在虚拟环境的一个目录下，但这并不影响git的使用。而git bash的path用链接链到了你windows的users目录，当然这会引发一些问题。但是，我上传博客的时候还是使用的git bash，因为msys2下的生成的ssh目录路径并不是本机的，所以上传到服务器的时候会出现问题。</p>
-<h2 id="git的配置"><a href="#git的配置" class="headerlink" title="git的配置"></a>git的配置</h2><p>这是配置好的配置列表<br><img src="/2018/10/12/git配置/git配置清单.png" alt="git config_list"><br>然后再看看具体一些配置信息如何添加修改</p>
-</li>
-<li><p>首先我的editor选择的不是安装git时已经下载配置好的vim（最强编辑器），而是自己习惯使用的sublime，所以需要将sublime的一些内容添加进配置信息。<br>找到目录C:\msys64\etc下的bash.bashrc文件，在后面添加如下内容</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># personal</span></span><br><span class="line"><span class="comment">## alias</span></span><br><span class="line"><span class="keyword">if</span> <span class="variable">$&#123;use_color&#125;</span> ; <span class="keyword">then</span></span><br><span class="line">   	<span class="built_in">alias</span> ls=<span class="string">'ls --color=auto'</span></span><br><span class="line">   	<span class="built_in">alias</span> grep=<span class="string">'grep --colour=auto'</span></span><br><span class="line">   	<span class="built_in">alias</span> egrep=<span class="string">'egrep --colour=auto'</span></span><br><span class="line">   	<span class="built_in">alias</span> fgrep=<span class="string">'fgrep --colour=auto'</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">alias</span> ll=<span class="string">'ls -l'</span> <span class="comment"># long list</span></span><br><span class="line"><span class="built_in">alias</span> la=<span class="string">'ls -A'</span> <span class="comment"># all but . and ..</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">alias</span> rm=<span class="string">'rm -v'</span> <span class="comment"># enable visual</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">alias</span> mv=<span class="string">'mv -iv'</span> <span class="comment"># enable visual</span></span><br><span class="line"><span class="built_in">alias</span> cp=<span class="string">'cp -iv'</span> <span class="comment"># enable visual</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">alias</span> df=<span class="string">'df -h'</span> <span class="comment"># human-readable sizes</span></span><br><span class="line"><span class="built_in">alias</span> free=<span class="string">'free -m'</span> <span class="comment"># show sizes in MB</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">alias</span> explore=<span class="string">'/c/Windows/SysWOW64/explorer.exe'</span></span><br><span class="line"><span class="built_in">alias</span> reg=<span class="string">'/c/Windows/SysWOW64/reg.exe'</span></span><br><span class="line"><span class="built_in">alias</span> tasklist=<span class="string">'/c/Windows/SysWOW64/tasklist.exe'</span></span><br><span class="line"><span class="built_in">alias</span> wmic=<span class="string">'/c/Windows/SysWOW64/wbem/WMIC.exe'</span></span><br><span class="line"><span class="built_in">alias</span> sublime=<span class="string">'"D:\Sublime\Sublime Text 3\sublime_text.exe"'</span>	<span class="comment">#sublime</span></span><br><span class="line"><span class="built_in">alias</span> bc4=<span class="string">'"D:\Git\BCompare\Beyond Compare 4\BCompare.exe"'</span>	    <span class="comment">#bc4</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## variable</span></span><br><span class="line"><span class="built_in">export</span> EDITOR=sublime</span><br><span class="line"><span class="built_in">export</span> PATH=/usr/<span class="built_in">local</span>/bin:/usr/bin:/bin:/opt/bin		<span class="comment">#msys2</span></span><br><span class="line"><span class="built_in">export</span> PATH=/mingw64/bin:/mingw32/bin:<span class="variable">$PATH</span>				<span class="comment">#mingw</span></span><br><span class="line"><span class="built_in">export</span> PATH=/usr/bin/core_perl:/usr/bin/site_perl:/usr/bin/vendor_perl:<span class="variable">$PATH</span> <span class="comment">#perl</span></span><br><span class="line"><span class="built_in">export</span> PATH=/d/nodejs/npm:<span class="variable">$PATH</span>							<span class="comment">#npm</span></span><br><span class="line"><span class="built_in">export</span> PATH=/c/Program\ Files/nodejs:/d/nodejs/npm:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>附：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global --replace-all merge.tool vimdiff	<span class="comment">#将所有的tool替换成vimdiff</span></span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>上面已经把自己要添加的sublime、bc4还有一些必要的path变量配置好了，接下来直接在msys2上执行下面git命令来配置就行了<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git config --global color.ui            <span class="literal">true</span></span><br><span class="line">git config --global core.editor         sublime</span><br><span class="line">git config --global core.quotepath      <span class="literal">false</span></span><br><span class="line">git config --global credential.helper   store</span><br><span class="line">git config --global gui.encoding        utf-8</span><br><span class="line">git config --global i18n.commitencoding utf-8</span><br><span class="line">git config --global merge.tool          bc4</span><br><span class="line">git config --global user.email          1300207142@qq.com</span><br><span class="line">git config --global user.name           Lyx</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>OK，以上就成功地完成了git的配置问题，接下来就可以愉快的玩玩git了！</p>
-
-          
+虚拟机安装manjaro，注意版本选择其他 Linux4.x 或更高版本内核 64
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/17/manjaro安装笔记/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2001,7 +1738,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2012,7 +1749,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2023,7 +1760,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
