@@ -352,9 +352,9 @@
 <h5 id="使用msys2下载git："><a href="#使用msys2下载git：" class="headerlink" title="使用msys2下载git："></a>使用msys2下载git：</h5><ol>
 <li><p>下载msys2，由于墙的存在，选择官网下载会非常慢，推荐在开源镜像站找资源下载。<br><strong><a href="https://mirrors.tuna.tsinghua.edu.cn/msys2/distrib/msys2-x86_64-latest.exe" target="_blank" rel="noopener">镜像下载链接</a></strong></p>
 </li>
-<li><p>添加一个环境变量HOME，设置为<em><strong>C:\msys64\home\用户名</strong></em>，以便访问编译配置文件。</p>
+<li><p>添加一个环境变量HOME，设置为_<strong>C:\msys64\home\用户名</strong>_，以便访问编译配置文件。</p>
 </li>
-<li><p>修改配置文件，找到<em><strong>C:\msys64\etc\pacman.d</strong></em>目录下的三个配置文件，依次修改</p>
+<li><p>修改配置文件，找到_<strong>C:\msys64\etc\pacman.d</strong>_目录下的三个配置文件，依次修改</p>
 <p><img src="/2018/10/12/git配置/QQ图片20181011231004.png" alt="配置文件"></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Server = http://mirrors.ustc.edu.cn/msys2/mingw/i686   <span class="comment">#mingw32</span></span><br><span class="line">Server = http://mirrors.ustc.edu.cn/msys2/mingw/x86_64 <span class="comment">#mingw64</span></span><br><span class="line">Server = http://mirrors.ustc.edu.cn/msys2/msys/<span class="variable">$arch</span>   <span class="comment">#msys</span></span><br></pre></td></tr></table></figure>
 </li>
