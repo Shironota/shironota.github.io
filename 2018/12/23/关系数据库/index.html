@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Piccolo_Devil">
 <meta property="og:description" content="关系模型由关系数据结构、关系操作集合、关系完整性约束三部分组成  关系数据结构 码：能唯一标识实体的属性 超码：超码是一个或多个属性的集合，这些属性可以让我们在一个实体集中唯一地标识一个实体。如果K是一个超码，那么K的任意超集也是超码，也就是说如果K是超码，那么所有包含K的集合也是超码 候选码：候选码是最小超码，它的任意真子集都不能成为超码 主码：从多个候选码中任意选出一个做为主码，如果候选码只">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-23T14:46:27.073Z">
+<meta property="og:updated_time" content="2018-12-23T15:22:44.064Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关系数据库">
 <meta name="twitter:description" content="关系模型由关系数据结构、关系操作集合、关系完整性约束三部分组成  关系数据结构 码：能唯一标识实体的属性 超码：超码是一个或多个属性的集合，这些属性可以让我们在一个实体集中唯一地标识一个实体。如果K是一个超码，那么K的任意超集也是超码，也就是说如果K是超码，那么所有包含K的集合也是超码 候选码：候选码是最小超码，它的任意真子集都不能成为超码 主码：从多个候选码中任意选出一个做为主码，如果候选码只">
@@ -377,7 +377,7 @@
 <p>8种关系代数运算种，有5种是基本的运算，其余3种可用基本运算来表达，它们是：</p>
 <p><strong>并、差、笛卡儿积、选择、投影</strong></p>
 </blockquote>
-<h3 id="传统的集合运算"><a href="#传统的集合运算" class="headerlink" title="传统的集合运算"></a>传统的集合运算</h3><h4 id="并"><a href="#并" class="headerlink" title="并"></a><strong>并</strong></h4><h4 id="差"><a href="#差" class="headerlink" title="差"></a><strong>差</strong></h4><h4 id="交"><a href="#交" class="headerlink" title="交"></a><strong>交</strong></h4><h4 id="笛卡儿积"><a href="#笛卡儿积" class="headerlink" title="笛卡儿积"></a><strong>笛卡儿积</strong></h4><h3 id="专门的关系运算"><a href="#专门的关系运算" class="headerlink" title="专门的关系运算"></a>专门的关系运算</h3><h4 id="选择"><a href="#选择" class="headerlink" title="选择"></a><strong>选择</strong></h4><p>  选择满足给定条件的诸元组，记作 $\sigma$<sub>F</sub>(R)={t|t∈R^F(t)=’真’}，其中F表示选择条件<br>  从行的角度<br>  例：$\sigma$<sub>length≥100</sub>(Movies)、$\sigma$<sub>length≥100ANDstudioName=′Fox′</sub>(Movies)</p>
+<h3 id="传统的集合运算"><a href="#传统的集合运算" class="headerlink" title="传统的集合运算"></a>传统的集合运算</h3><h4 id="并"><a href="#并" class="headerlink" title="并"></a><strong>并</strong></h4><h4 id="差"><a href="#差" class="headerlink" title="差"></a><strong>差</strong></h4><h4 id="交"><a href="#交" class="headerlink" title="交"></a><strong>交</strong></h4><h4 id="笛卡儿积"><a href="#笛卡儿积" class="headerlink" title="笛卡儿积"></a><strong>笛卡儿积</strong></h4><h3 id="专门的关系运算"><a href="#专门的关系运算" class="headerlink" title="专门的关系运算"></a>专门的关系运算</h3><h4 id="选择"><a href="#选择" class="headerlink" title="选择"></a><strong>选择</strong></h4><p>  选择满足给定条件的诸元组，记作 $\sigma$<sub>F</sub>(R)={t|t∈R^F(t)=’真’}，其中F表示选择条件<br>  从行的角度<br>  例：$\sigma$<sub>length≥100</sub>(Movies)、$\sigma$<sub>length≥100 AND studioName=′Fox′</sub>(Movies)</p>
 <h4 id="投影"><a href="#投影" class="headerlink" title="投影"></a><strong>投影</strong></h4><p>投影操作用于从关系R中找出拥有某些属性的列，记作$\Pi$ <sub>A</sub>(R)={t[A]|t∈R}，其中A为R中的属性列。将这些列选择出来后，按原顺序排列<br>从列的角度<br>例：$\Pi$<sub>Sname,Sdept</sub>(Student)</p>
 <p><strong>PS：当仅选出一列时，如果该列中存在相同的值，那么只会保留一个值</strong></p>
 <h4 id="连接"><a href="#连接" class="headerlink" title="连接"></a><strong>连接</strong></h4><p>也称$\theta$连接，记作R $\Join$ <sub>AθB</sub>S={…}，其中A、B分别为R和S上列数相等且可比的属性组，$\theta$是比较运算符。连接运算从R和S的笛卡儿积R$\times$S中选取R关系在A属性组上的值与S关系在B属性组上的值满足比较关系$\theta$的元组</p>
@@ -417,11 +417,174 @@
 </tbody>
 </table>
 </div>
-<p>S<br>|  B   |  E   |<br>| :—: | :—: |<br>|  b1  |  3   |<br>|  b2  |  7   |<br>|  b3  |  10  |<br>|  b3  |  2   |<br>|  b5  |  2   |</p>
+<p>S</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">B</th>
+<th style="text-align:center">E</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">b1</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">b2</td>
+<td style="text-align:center">7</td>
+</tr>
+<tr>
+<td style="text-align:center">b3</td>
+<td style="text-align:center">10</td>
+</tr>
+<tr>
+<td style="text-align:center">b3</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">b5</td>
+<td style="text-align:center">2</td>
+</tr>
+</tbody>
+</table>
+</div>
 <p>R $\Join$ <sub>C&lt;E</sub>S</p>
-<p>非等值连接<br>|  A   | R.B  |  C   | S.B  |  E   |<br>| :—: | :—: | :—: | :—: | :—: |<br>|  a1  |  b1  |  5   |  b2  |  7   |<br>|  a1  |  b1  |  5   |  b3  |  10  |<br>|  a1  |  b2  |  6   |  b2  |  7   |<br>|  a1  |  b2  |  6   |  b3  |  10  |<br>|  a2  |  b3  |  8   |  b3  |  10  |</p>
-<p>等值连接<br>|  A   | R.B  |  C   | S.B  |  E   |<br>| :—: | :—: | :—: | :—: | :—: |<br>|  a1  |  b1  |  5   |  b1  |  3   |<br>|  a1  |  b2  |  6   |  b2  |  7   |<br>|  a2  |  b3  |  8   |  b3  |  10  |<br>|  a2  |  b3  |  8   |  b3  |  2   |</p>
-<p>自然连接<br>|  A   |  B   |  C   |  E   |<br>| :—: | :—: | :—: | :—: |<br>|  a1  |  b1  |  5   |  3   |<br>|  a1  |  b2  |  6   |  7   |<br>|  a2  |  b3  |  8   |  10  |<br>|  a2  |  b3  |  8   |  2   |</p>
+<p>非等值连接</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">A</th>
+<th style="text-align:center">R.B</th>
+<th style="text-align:center">C</th>
+<th style="text-align:center">S.B</th>
+<th style="text-align:center">E</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">a1</td>
+<td style="text-align:center">b1</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">b2</td>
+<td style="text-align:center">7</td>
+</tr>
+<tr>
+<td style="text-align:center">a1</td>
+<td style="text-align:center">b1</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">b3</td>
+<td style="text-align:center">10</td>
+</tr>
+<tr>
+<td style="text-align:center">a1</td>
+<td style="text-align:center">b2</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">b2</td>
+<td style="text-align:center">7</td>
+</tr>
+<tr>
+<td style="text-align:center">a1</td>
+<td style="text-align:center">b2</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">b3</td>
+<td style="text-align:center">10</td>
+</tr>
+<tr>
+<td style="text-align:center">a2</td>
+<td style="text-align:center">b3</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">b3</td>
+<td style="text-align:center">10</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>等值连接</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">A</th>
+<th style="text-align:center">R.B</th>
+<th style="text-align:center">C</th>
+<th style="text-align:center">S.B</th>
+<th style="text-align:center">E</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">a1</td>
+<td style="text-align:center">b1</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">b1</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">a1</td>
+<td style="text-align:center">b2</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">b2</td>
+<td style="text-align:center">7</td>
+</tr>
+<tr>
+<td style="text-align:center">a2</td>
+<td style="text-align:center">b3</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">b3</td>
+<td style="text-align:center">10</td>
+</tr>
+<tr>
+<td style="text-align:center">a2</td>
+<td style="text-align:center">b3</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">b3</td>
+<td style="text-align:center">2</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>自然连接</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">A</th>
+<th style="text-align:center">B</th>
+<th style="text-align:center">C</th>
+<th style="text-align:center">E</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">a1</td>
+<td style="text-align:center">b1</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td style="text-align:center">a1</td>
+<td style="text-align:center">b2</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">7</td>
+</tr>
+<tr>
+<td style="text-align:center">a2</td>
+<td style="text-align:center">b3</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">10</td>
+</tr>
+<tr>
+<td style="text-align:center">a2</td>
+<td style="text-align:center">b3</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">2</td>
+</tr>
+</tbody>
+</table>
+</div>
 <p><strong>悬浮元组</strong>：被舍弃掉的元组<br><strong>外连接</strong>：把悬浮元组保存在结果关系中，而在其他属性上填空值(NULL)<br><strong>左外连接</strong>：只保留左边关系R中的悬浮元组<br><strong>右外连接</strong>：只保留右边关系S中的悬浮元组</p>
 <h4 id="除"><a href="#除" class="headerlink" title="除"></a><strong>除</strong></h4><blockquote>
 <p>给定一个集合A到B的映射，且a属于A，b属于B。如果元素a和元素b对应，那么我们把元素b叫做元素a的象，元素a叫做元素b的原象，所有的b构成的集合就叫做<strong>象集</strong></p>
@@ -429,8 +592,56 @@
 <p><strong>定义</strong>：除运算是同时从关系的水平方向和垂直方向进行运算，给定关系R(X,Y)和S(Y,Z)，X，Y，Z为属性组。R$\div$S应当满足元组在X上的分量值x的象集Y <sub>x</sub>包含关系S在属性组Y上投影的集合</p>
 <p>定义啥的最烦了，说白了就是查找在被除数中能够完全覆盖除数的部分</p>
 <p>举个栗子：</p>
-<p>R<br>|  X   |  Y   |<br>| :—: | :—: |<br>|  x1  |  y1  |<br>|  x2  |  y2  |<br>|  x2  |  y3  |<br>|  x2  |  y1  |</p>
-<p>S<br>|  Y   |  F   |<br>| :—: | :—: |<br>|  y1  |  f1  |<br>|  y2  |  f3  |</p>
+<p>R</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">X</th>
+<th style="text-align:center">Y</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">x1</td>
+<td style="text-align:center">y1</td>
+</tr>
+<tr>
+<td style="text-align:center">x2</td>
+<td style="text-align:center">y2</td>
+</tr>
+<tr>
+<td style="text-align:center">x2</td>
+<td style="text-align:center">y3</td>
+</tr>
+<tr>
+<td style="text-align:center">x2</td>
+<td style="text-align:center">y1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>S</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Y</th>
+<th style="text-align:center">F</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">y1</td>
+<td style="text-align:center">f1</td>
+</tr>
+<tr>
+<td style="text-align:center">y2</td>
+<td style="text-align:center">f3</td>
+</tr>
+</tbody>
+</table>
+</div>
 <p>第一步：找出R与S相同的属性，Y。在S中对Y做投影{y1,y2}</p>
 <p>第二步：被除关系R中与S不同的属性列是X，R在属性X上做取消重复值的投影{x1,x2}</p>
 <p>第三步：求关系R中X对应的象集Y，x1：{y1}；x2：{y1,y2,y3}</p>
@@ -829,6 +1040,26 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
