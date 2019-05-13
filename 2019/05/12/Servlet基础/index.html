@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="java," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="什么是Servletservlet本质上就是一个Java接口，定义的是一套处理网络请求的规范。servlet不会直接和客户端打交道，请求是通过servlet容器来传递的，常用的servlet容器有tomcat，容器监听端口后将请求信息交给servlet来处理，servlet再调用service()方法返回response对象给容器，容器再将这个response返回给客户端，使用servlet是来实">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Servlet基础">
+<meta property="og:url" content="http://yoursite.com/2019/05/12/Servlet基础/index.html">
+<meta property="og:site_name" content="Piccolo_Devil">
+<meta property="og:description" content="什么是Servletservlet本质上就是一个Java接口，定义的是一套处理网络请求的规范。servlet不会直接和客户端打交道，请求是通过servlet容器来传递的，常用的servlet容器有tomcat，容器监听端口后将请求信息交给servlet来处理，servlet再调用service()方法返回response对象给容器，容器再将这个response返回给客户端，使用servlet是来实">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-13T04:00:44.595Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Servlet基础">
+<meta name="twitter:description" content="什么是Servletservlet本质上就是一个Java接口，定义的是一套处理网络请求的规范。servlet不会直接和客户端打交道，请求是通过servlet容器来传递的，常用的servlet容器有tomcat，容器监听端口后将请求信息交给servlet来处理，servlet再调用service()方法返回response对象给容器，容器再将这个response返回给客户端，使用servlet是来实">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/12/Servlet基础/"/>
+
+
+
+
+
+  <title>Servlet基础 | Piccolo_Devil</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Piccolo_Devil</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/12/Servlet基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lyx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Piccolo_Devil">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Servlet基础</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-12T16:25:34+08:00">
+                2019-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="什么是Servlet"><a href="#什么是Servlet" class="headerlink" title="什么是Servlet"></a>什么是Servlet</h4><p>servlet本质上就是一个Java接口，定义的是一套处理网络请求的规范。servlet不会直接和客户端打交道，请求是通过servlet容器来传递的，常用的servlet容器有tomcat，容器监听端口后将请求信息交给servlet来处理，servlet再调用service()方法返回response对象给容器，容器再将这个response返回给客户端，使用servlet是来实现浏览器与服务器的交互的。</p>
+<h4 id="GenericServlet-与HttpServlet"><a href="#GenericServlet-与HttpServlet" class="headerlink" title="GenericServlet 与HttpServlet"></a>GenericServlet 与HttpServlet</h4><p>GenericServlet抽象类实现了Servlet和ServletConfig接口，并完成了以下任务：</p>
+<ul>
+<li>将init方法中的ServletConfig赋给一个类级变量，以便可以通过调用getServletConfig获取</li>
+<li>为Servlet接口中的所有方法提供默认的方法</li>
+<li>提供方法，包括ServletConfig中的方法</li>
+</ul>
+<p>简而言之，GenericServlet是一个通用的协议无关的Servlet，它实现了除了service()之外的其他方法，在创建Servlet对象时，可以继承GenericServlet类来简化程序的代码，但需要实现service()方法。</p>
+<p>但是，用得最广泛的还是HttpServlet，它更加适用于http协议</p>
+<p>HttpServlet类继承自GeneriServlet类，它的主要特性有：</p>
+<ul>
+<li>不用覆盖service方法，而是覆盖doGet和doPost。在少数情况下，还会覆盖以下任意方法：doHead、doPut、doTrace、doOptions、doDelete</li>
+<li>使用HttpServletRequest和HttpServletResponse，而不是ServletRequest和ServletResponse</li>
+</ul>
+<h4 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h4><ul>
+<li><p>加载和实例化。Tomcat第一次访问servlet时，Tomcat负责创建servlet的实例</p>
+</li>
+<li><p>初始化。servlet被实例化后，Tomcat调用servlet的<strong>init()</strong>方法初始化对象</p>
+</li>
+<li><p>处理请求。浏览器访问servlet时，servlet调用<strong>service()</strong>方法处理请求</p>
+</li>
+<li><p>销毁。调用<strong>destroy()</strong>，释放掉实例占用的资源</p>
+<p><strong>每访问一次servlet，就会调用service()，而init()在被销毁前只有第一次访问时被调用。</strong></p>
+</li>
+</ul>
+<h4 id="xml配置文件"><a href="#xml配置文件" class="headerlink" title="xml配置文件"></a>xml配置文件</h4><p>  由于servlet是要实现浏览器与服务器交互的，所以Tomcat容器还要知道浏览器怎么访问servlet。从Servlet3.0开始，配置servlet有两种方式：</p>
+<ol>
+<li><p>在servlet类中使用基于注解的方式进行配置，即@WebServlet</p>
+</li>
+<li><p>使用部署描述符，即web.xml文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 为servlet配置名字[一般与类名一致] --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>MyServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- 类的存放位置信息[包含包名] --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>com.con.MyServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 在web应用程序启动时就装载并创建该servlet实例对象，以及调用它的init()方法，例如为整个web应用创建数据库 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">load-on-startup</span>&gt;</span>1<span class="tag">&lt;/<span class="name">load-on-startup</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 配置映射路径 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>MyServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- url链接路径--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/MyServlet<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>  过程：</p>
+<ol>
+<li><p>访问url链接    <url-pattern></url-pattern></p>
+<p><strong>同一个Servlet可以被映射到多个URL上</strong></p>
+</li>
+<li><p>找到web.xml配置信息中的映射路径名字    <servlet-name></servlet-name></p>
+</li>
+<li><p>通过映射路径名字找到配置servlet的名字    <servlet-name></servlet-name></p>
+</li>
+<li><p>通过servlet的名字找到servlet编译后class文件存放的位置    <servlet-class></servlet-class></p>
+</li>
+<li><p>执行程序</p>
+</li>
+</ol>
+<h4 id="ServletConfig-与-ServletContext"><a href="#ServletConfig-与-ServletContext" class="headerlink" title="ServletConfig 与 ServletContext"></a>ServletConfig 与 ServletContext</h4><p><strong>ServletConfig</strong></p>
+<p>ServletConfig对象的作用：</p>
+<p>​    用于封装servlet的配置信息，读取web.xml中配置的初始化参数</p>
+<p>将参数信息放在web.xml文件中的好处：</p>
+<p>​    使程序更加灵活，当需要更换参数时，只需更新配置文件web.xml，而不用改程序代码</p>
+  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>MyServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>com.MyServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>name<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>value<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>MyServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/MyServlet<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>ServletContext</strong></p>
+<p>每当容器Tomcat启动时，都会创建一个ServletContext对象，它代表当前web站点</p>
+  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">context-param</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>username<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>Piccolo_Devil<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>作用：</p>
+<ul>
+<li><p>所有Servlet共享一个ServletContext对象，ServletContext可以获取的是整个web站点的配置信息，所以可以通过ServletContext实现不同Servlet之间的通讯。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Servlet A</span></span><br><span class="line">ServletContext context = <span class="keyword">this</span>.getServletContext();</span><br><span class="line">	context.setAttribute(<span class="string">"username"</span>,<span class="string">"Piccolo_Devil"</span>);	<span class="comment">//向域对象中存入name-value数据</span></span><br><span class="line"><span class="comment">//Servlet B</span></span><br><span class="line">ServletContext context = <span class="keyword">this</span>.getServletContext();</span><br><span class="line">	String value=(String) context.getAttribute(<span class="string">"username"</span>);	<span class="comment">//获取域中属性</span></span><br><span class="line">System.out.println(value);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取整个web应用的配置信息</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String url = <span class="keyword">this</span>.getServletContext().getInitParameter(<span class="string">"url"</span>);</span><br><span class="line">String username = <span class="keyword">this</span>.getServletContext().getInitParameter(<span class="string">"username"</span>);</span><br><span class="line">String password = <span class="keyword">this</span>.getServletContext().getInitParameter(<span class="string">"password"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>实现servlet转发</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.getServletContext().setAttribute(<span class="string">"data"</span>,<span class="string">"serlvet数据转发"</span>);</span><br><span class="line">RequestDispatcher rd = <span class="keyword">this</span>.getServletContext().getRequestDispatcher(<span class="string">"/viewdata.jsp"</span>);</span><br><span class="line">rd.forward(request, response);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>读取资源文件</p>
+<p>一般读取文件的时候，如果程序和文件在同一包名下，可以直接通过文件名称获取文件，因为这个程序是通过JVM来运行的，而在servlet技术中，是通过容器如Tomcat来运行的，Servlet编译后的class文件是存放在WEB-INF目录下的classes文件夹中，这样读取时的路径要写上绝对路径。这会带来很多不便，而且不同站点的绝对路径也会有差异。这时就可以通过ServletContext对象来获取文件路径。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ServletContext servletContext = <span class="keyword">this</span>.getServletContext();</span><br><span class="line"><span class="comment">//调用ServletContext方法获取到读取文件的流</span></span><br><span class="line">InputStream inputStream = servletContext.getResourceAsStream(<span class="string">"/WEB-INF/classes/com/web/1.png"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/10/人工蜂群算法/" rel="next" title="人工蜂群算法">
+                <i class="fa fa-chevron-left"></i> 人工蜂群算法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Lyx</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是Servlet"><span class="nav-number">1.</span> <span class="nav-text">什么是Servlet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GenericServlet-与HttpServlet"><span class="nav-number">2.</span> <span class="nav-text">GenericServlet 与HttpServlet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生命周期"><span class="nav-number">3.</span> <span class="nav-text">生命周期</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#xml配置文件"><span class="nav-number">4.</span> <span class="nav-text">xml配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ServletConfig-与-ServletContext"><span class="nav-number">5.</span> <span class="nav-text">ServletConfig 与 ServletContext</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lyx</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>
