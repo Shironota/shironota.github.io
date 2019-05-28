@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="软件测试," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Software Faults, Errors and Failures Fault – It is a condition that causes the software to fail to perform its required function.  Error – Refers to difference between Actual Output and Expected outpu">
+<meta name="keywords" content="软件测试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="viva for SoftwareTest">
+<meta property="og:url" content="http://yoursite.com/2019/05/26/viva-for-SoftwareTest/index.html">
+<meta property="og:site_name" content="Piccolo_Devil">
+<meta property="og:description" content="Software Faults, Errors and Failures Fault – It is a condition that causes the software to fail to perform its required function.  Error – Refers to difference between Actual Output and Expected outpu">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-28T04:43:23.845Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="viva for SoftwareTest">
+<meta name="twitter:description" content="Software Faults, Errors and Failures Fault – It is a condition that causes the software to fail to perform its required function.  Error – Refers to difference between Actual Output and Expected outpu">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/26/viva-for-SoftwareTest/"/>
+
+
+
+
+
+  <title>viva for SoftwareTest | Piccolo_Devil</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Piccolo_Devil</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/26/viva-for-SoftwareTest/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lyx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Piccolo_Devil">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">viva for SoftwareTest</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-26T21:08:52+08:00">
+                2019-05-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件测试/" itemprop="url" rel="index">
+                    <span itemprop="name">软件测试</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="Software-Faults-Errors-and-Failures"><a href="#Software-Faults-Errors-and-Failures" class="headerlink" title="Software Faults, Errors and Failures"></a>Software Faults, Errors and Failures</h4><ul>
+<li><strong>Fault – It is a condition that causes the software to fail to perform its required function. </strong></li>
+<li><strong>Error – Refers to difference between Actual Output and Expected output. </strong></li>
+<li><strong>Failure –  It is the inability of a system or component to perform required function according to its specification. </strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findLast</span> <span class="params">(<span class="keyword">int</span> [ ] x,<span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;  <span class="comment">// Effects: If x is null throw NullPointerException</span></span><br><span class="line">   <span class="comment">// else return the index of last element in x that equals y.</span></span><br><span class="line">   <span class="comment">// if no such element exists,return -1.</span></span><br><span class="line">   <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">   <span class="keyword">for</span> (<span class="keyword">int</span> i = x.length-<span class="number">1</span>; i &gt; <span class="number">0</span> ; i--)</span><br><span class="line">   &#123;</span><br><span class="line">      <span class="keyword">if</span> (x [ i ] == y)</span><br><span class="line">      &#123;</span><br><span class="line">         <span class="keyword">return</span> i;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>In the for loop, because i &gt; 0 is not satisfied when i = 0, it is impossible to traverse to i = 0, so there is actually no comparison of the first number. This is our fault.</p>
+<ol>
+<li><p>When the test case is : x = [], a null pointer exception is thrown. At this time, the following program is not executed, so no fault is executed.</p>
+</li>
+<li><p>When the test case is : x = [2,3,5], y = 3</p>
+</li>
+</ol>
+<p>Expected value: 1 Actual value: 1 Since we returned correctly when i = 1. So although we executed the program with fault, but did not generate an error, so the fault was executed and no error was executed.</p>
+<ol>
+<li>When the test case is : x = [2,3,5], y = 1</li>
+</ol>
+<p>Expected value: -1 Actual value: -1 Although we got the correct result, by design, we should return -1 after traversing x = 0; and the actual program returns -1 directly after traversing x = 1. So the fault was executed and the error was generated, but the failure did not occur.</p>
+<ol>
+<li>When the test case is : x = [2,3,5], y = 2</li>
+</ol>
+<p>Expected value: 0 Actual value: -1 We get the result that is inconsistent with the expectation. According to the design, we should return 0 after traversing x = 0. The actual program returns -1 directly after traversing x = 1, so execute The fault, which produced an error, also produced a failure.</p>
+<h4 id="Verification-and-Validation"><a href="#Verification-and-Validation" class="headerlink" title="Verification and Validation"></a>Verification and Validation</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Verification</th>
+<th style="text-align:left">Validation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Are we building the system right?</td>
+<td style="text-align:left">Are we building the right system?</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>The process of determining whether the products of a given phase of the software development process fulfill the requirements established during the previous phase</strong></td>
+<td style="text-align:left"><strong>The process of evaluating software at the end of software development to ensure compliance with intended usage</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">The objective of Verification is to make sure that the product being develop is as per the requirements and design specifications.</td>
+<td style="text-align:left">The objective of Validation is to make sure that the product actually meet up the user’s requirements, and check whether the specifications were correct in the first place.</td>
+</tr>
+<tr>
+<td style="text-align:left">Following activities are involved in Verification: Reviews, Meetings and Inspections.</td>
+<td style="text-align:left">Following activities are involved in Validation: Testing like black box testing, white box testing, gray box testing etc.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="Testing-Goals-Based-on-Test-Process-Maturity"><a href="#Testing-Goals-Based-on-Test-Process-Maturity" class="headerlink" title="Testing Goals Based on Test Process Maturity"></a>Testing Goals Based on Test Process Maturity</h4><ul>
+<li>Level 0 : There’s no difference between testing and debugging</li>
+<li>Level 1 : The purpose of testing is to show correctness</li>
+<li>Level 2 : The purpose of testing is to show that the software doesn’t work</li>
+<li>Level 3 : The purpose of testing is not to prove anything specific, but to reduce the risk of using the software</li>
+<li>Level 4 : Testing is a mental discipline that helps all IT professionals develop higher quality software</li>
+</ul>
+<h4 id="What-is-Software-testing"><a href="#What-is-Software-testing" class="headerlink" title="What is Software testing?"></a>What is Software testing?</h4><p>Testing is the process of evaluating a system or its components with the intent to find whether it satisfies the specified requirements or not.In simple words, testing is executing a system in order to identify any gaps, errors, or missing requirements in contrary to the actual requirements. Testing can be defined as - A process of analyzing a software item to detect the differences between existing and required conditions (that is defects/errors/bugs) and to evaluate the features of the software item.</p>
+<h4 id="Why-Do-We-Test-Software"><a href="#Why-Do-We-Test-Software" class="headerlink" title="Why Do We Test Software ?"></a>Why Do We Test Software ?</h4><p>Software Testing is necessary because the existence of faults in software is inevitable. </p>
+<ul>
+<li>Improve quality<br>It is very important to ensure the Quality of the product. Quality product delivered to the customers helps in gaining their confidence.Poor quality in software can be hazardous to human life and safety. Quality problems can impact the functionality of the software products. </li>
+<li>Reduce cost<br>Testing is the most time consuming and expensive part of software development. Not testing is even more expensive. If we have too little testing effort early, the cost of testing increases. Planning for testing after development is prohibitively expensive.</li>
+<li>Preserve customer satisfaction<br>Testing can bring good products, good products can get user satisfaction and support, in order to expand our product market.</li>
+</ul>
+<h4 id="Complexity-of-Testing-Software"><a href="#Complexity-of-Testing-Software" class="headerlink" title="Complexity of Testing Software"></a>Complexity of Testing Software</h4><p>Software complexity is a way to describe a specific set of characteristics of your code. It includes time complexity, space complexity.Just like how long it takes for this test program to run, how much memory does this program take up?</p>
+<h4 id="Data-Abstraction"><a href="#Data-Abstraction" class="headerlink" title="Data Abstraction"></a>Data Abstraction</h4><p>Data abstraction is the reduction of a particular body of data to a simplified representation of the whole. Abstraction, in general, is the process of taking away or removing characteristics from something in order to reduce it to a set of essential characteristics. Like other engineers, we must use abstraction to manage complexity. This is the purpose of the model-driven test design process. The “model” is an abstract structure.</p>
+<h4 id="Coverage-Criteria"><a href="#Coverage-Criteria" class="headerlink" title="Coverage Criteria"></a>Coverage Criteria</h4><p>Even small programs have too many inputs to fully test them all. Testers search a huge input space. Trying to find the fewest inputs that will find the most problems. Coverage criteria are usually defined as rules or requirements, which a test suite needs to satisfy. Coverage criteria give structured, practical ways to search the input space.</p>
+<p>Advantages of Coverage Criteria: </p>
+<ul>
+<li>Maximize the “bang for the buck”</li>
+<li>Make regression testing easier</li>
+<li>Gives testers a “stopping rule” … when testing is finished</li>
+<li>Can be well supported with powerful tools</li>
+</ul>
+<h4 id="Regression-Testing"><a href="#Regression-Testing" class="headerlink" title="Regression Testing"></a>Regression Testing</h4><p>Regression Testing is defined as a type of software testing to confirm that a recent program or code change has not adversely affected existing features.<br>Regression Testing is nothing but a full or partial selection of already executed test cases which are re-executed to ensure existing functionalities work fine.<br>This testing is done to make sure that new code changes should not have side effects on the existing functionalities. It ensures that the old code still works once the new code changes are done.</p>
+<h4 id="Test-Automation"><a href="#Test-Automation" class="headerlink" title="Test Automation"></a>Test Automation</h4><p>In software testing, test automation is the use of software separate from the software being tested to control the execution of tests and the comparison of actual outcomes with predicted outcomes. Test automation can automate some repetitive but necessary tasks in a formalized testing process already in place, or perform additional testing that would be difficult to do manually. </p>
+<h4 id="Black-box-testing-amp-White-box-testing-amp-Model-based-testing"><a href="#Black-box-testing-amp-White-box-testing-amp-Model-based-testing" class="headerlink" title="Black-box testing &amp; White-box testing &amp; Model-based testing"></a>Black-box testing &amp; White-box testing &amp; Model-based testing</h4><ul>
+<li>Black-box testing : Derive tests from external descriptions of the software, including specifications, requirements, and design</li>
+<li>White-box testing : Derive tests from the source code internals of the software, specifically including branches, individual conditions, and statements</li>
+<li>Model-based testing : Derive tests from a model of the software (such as a UML diagram)</li>
+</ul>
+<h4 id="Model-based-testing"><a href="#Model-based-testing" class="headerlink" title="Model-based testing"></a>Model-based testing</h4><p>Like other engineers, we must use abstraction to manage complexity. This is the purpose of the model-driven test design process. The “model” is an abstract structure.The Model-Driven Test Design (MDTD) process breaks testing into a series of small tasks that simplify test generation. </p>
+<h4 id="Testing-can-be-broken-up-into-four-general-types-of-activities"><a href="#Testing-can-be-broken-up-into-four-general-types-of-activities" class="headerlink" title="Testing can be broken up into four general types of activities"></a>Testing can be broken up into four general types of activities</h4><ol>
+<li>Test Design</li>
+</ol>
+<ul>
+<li>Criteria-based</li>
+<li>Human-based</li>
+</ul>
+<ol>
+<li>Test Automation</li>
+<li>Test Execution</li>
+<li>Test Evaluation</li>
+</ol>
+<h4 id="Agile-Testing"><a href="#Agile-Testing" class="headerlink" title="Agile Testing"></a>Agile Testing</h4><p>A software testing practice that follows the principles of agile software development is called Agile Testing.</p>
+<p>Agile is an iterative development methodology, where requirements evolve through collaboration between the customer and self-organizing teams and agile aligns development with customer needs.</p>
+<p>Advantages of Agile Testing: </p>
+<ul>
+<li>Agile Testing Saves Time and Money </li>
+<li>Less Documentation</li>
+<li>Regular feedback from the end user</li>
+<li>Daily meetings can help to determine the issues well in advance</li>
+</ul>
+<p>Principles of Agile Testing: </p>
+<ul>
+<li>Testing is NOT a Phase</li>
+<li>Testing Moves the project Forward</li>
+<li>Everyone Tests</li>
+<li>Shortening Feedback Response Time </li>
+<li>Clean Code</li>
+<li>Reduce Test Documentation</li>
+<li>Test Driven</li>
+</ul>
+<h4 id="What-is-Junit"><a href="#What-is-Junit" class="headerlink" title="What is Junit"></a>What is Junit</h4><p>JUnit is an open source Unit Testing Framework for JAVA. It is useful for Java Developers to write and run repeatable tests. It is used for Unit Testing of a small chunk of code. Once you are done with code, you should execute all tests, and it should pass. Every time any code is added, you need to re-execute all test cases and makes sure nothing is broken.</p>
+<h4 id="What-is-Framework"><a href="#What-is-Framework" class="headerlink" title="What is Framework"></a>What is Framework</h4><p>A framework is a real or conceptual structure intended to serve as a support or guide for the building of something that expands the structure into something useful.</p>
+<h4 id="What-is-Unit-Testing"><a href="#What-is-Unit-Testing" class="headerlink" title="What is Unit Testing"></a>What is Unit Testing</h4><p>Unit Testing is used to verify a small chunk of code by creating a path, function or a method. The term “unit” exist earlier than the object-oriented era. It is basically a natural abstraction of an object oriented system i.e. a Java class or object (its instantiated form).</p>
+<h4 id="The-fixtures-and-annotations-in-Junit"><a href="#The-fixtures-and-annotations-in-Junit" class="headerlink" title="The fixtures and annotations in Junit"></a>The fixtures and annotations in Junit</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BasicAnnotationTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Run once, e.g. Database connection, connection pool</span></span><br><span class="line">    <span class="meta">@BeforeClass</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">runOnceBeforeClass</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"@BeforeClass - runOnceBeforeClass"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Run once, e.g close connection, cleanup</span></span><br><span class="line">    <span class="meta">@AfterClass</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">runOnceAfterClass</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"@AfterClass - runOnceAfterClass"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Should rename to @BeforeTestMethod</span></span><br><span class="line">    <span class="comment">// e.g. Creating an similar object and share for all @Test</span></span><br><span class="line">    <span class="meta">@Before</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">runBeforeTestMethod</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"@Before - runBeforeTestMethod"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Should rename to @AfterTestMethod</span></span><br><span class="line">    <span class="meta">@After</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">runAfterTestMethod</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"@After - runAfterTestMethod"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test_method_1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"@Test - test_method_1"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test_method_2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"@Test - test_method_2"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Output is: </p>
+<blockquote>
+<p>@BeforeClass - runOnceBeforeClass<br>@Before - runBeforeTestMethod<br>@Test - test_method_1<br>@After - runAfterTestMethod<br>@Before - runBeforeTestMethod<br>@Test - test_method_2<br>@After - runAfterTestMethod<br>@AfterClass - runOnceAfterClass</p>
+</blockquote>
+<h4 id="Code-refactoring"><a href="#Code-refactoring" class="headerlink" title="Code-refactoring"></a>Code-refactoring</h4><p>Code refactoring is the process of restructuring existing computer code—changing the factoring—without changing its external behavior. Refactoring is intended to improve nonfunctional attributes of the software. Advantages include improved code readability and reduced complexity; these can improve source-code maintainability and create a more expressive internal architecture or object model to improve extensibility.</p>
+<h4 id="Code-Integration"><a href="#Code-Integration" class="headerlink" title="Code-Integration"></a>Code-Integration</h4><p>Code Integration is a development practice where developers integrate code into a shared repository frequently, preferably several times a day. Each integration can then be verified by an automated build and automated tests. While automated testing is not strictly part of CI it is typically implied. One of the key benefits of integrating regularly is that you can detect errors quickly and locate them more easily. As each change introduced is typically small, pinpointing the specific change that introduced a defect can be done quickly.</p>
+<h4 id="Traceability"><a href="#Traceability" class="headerlink" title="Traceability"></a>Traceability</h4><p>Traceability refers to a document in software testing which intends to establish relationship among various factors. It helps to determine the completeness of a given relationship by comparing the baselined documents(business and technical). Traceability check is done by preparing a tabular representation of data (test cases). Traceability may vary from mapping requirements to components, test conditions with test scripts or test cases.</p>
+<h4 id="Test-Evaluation"><a href="#Test-Evaluation" class="headerlink" title="Test Evaluation"></a>Test Evaluation</h4><p>Test Evaluation is the process by which a system or components are compared against requirements and specifications through testing. In order to correctly evaluate a test, at least four attributes should be measured: namely, sensitivity, specificity, accuracy and precision.</p>
+<h4 id="Selenium"><a href="#Selenium" class="headerlink" title="Selenium"></a>Selenium</h4><p>Selenium is a free (open source) automated testing suite for web applications across different browsers and platforms. It is quite similar to HP Quick Test Pro (QTP now UFT) only that Selenium focuses on automating web-based applications. Testing done using Selenium tool is usually referred as Selenium Testing.</p>
+<p>Selenium is not just a single tool but a suite of software’s, each catering to different testing needs of an organization. It has four components.</p>
+<ul>
+<li>Selenium Integrated Development Environment (IDE)</li>
+<li>Selenium Remote Control (RC)</li>
+<li>WebDriver</li>
+<li>Selenium Grid</li>
+</ul>
+<p>WebDriver is an interface provided by Selenium WebDriver. As we know that interfaces in Java are the collection of constants and abstract methods(methods without any implementation). The WebDriver interface serves as a contract that each browser specific implementation like ChromeDriver, FireFoxDriver must follow.</p>
+<h4 id="What-is-the-advantage-and-disadvantage-of-using-Selenium-Testing-Tool"><a href="#What-is-the-advantage-and-disadvantage-of-using-Selenium-Testing-Tool" class="headerlink" title="What is the advantage and disadvantage of using Selenium Testing Tool?"></a>What is the advantage and disadvantage of using Selenium Testing Tool?</h4><p><strong>Advantages:</strong> </p>
+<ol>
+<li>Selenium is pure open source, freeware and portable tool. </li>
+<li>Selenium supports variety of languages that include Java, Perl, Python, C#, Ruby, Groovy, Java Script, and VB Script. etc. </li>
+<li>Selenium supports many operating systems like Windows, Macintosh, Linux, Unix etc. </li>
+<li>Selenium supports many browsers like Internet explorer, Chrome, Firefox, Opera, Safari etc. </li>
+<li>Selenium can be integrated with TestNG testing framework for testing our applications and generating reports. </li>
+<li>Selenium can be integrated with other open source tools for supporting other features. </li>
+<li>Selenium can be used for Android, IPhone, Blackberry etc. based application testing. </li>
+</ol>
+<p><strong>Disadvantages:</strong> </p>
+<ol>
+<li>Selenium needs very much expertise resources. The resource should also be very well versed in framework architecture. </li>
+<li>Selenium only supports web based application and does not support windows based application. </li>
+<li>It is difficult to test Image based application. </li>
+<li>Selenium need outside support for report generation activity like dependence on TestNG or Jenkins. </li>
+<li>Selenium does not support built in add-ins support. </li>
+<li>Selenium user lacks online support for the problems they face. </li>
+<li>Selenium script creation time is bit high. </li>
+<li>Selenium does not support file upload facility. </li>
+<li>Selenium partially supports for Dialog boxes.</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/软件测试/" rel="tag"># 软件测试</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/13/Hexo特殊字符转义/" rel="next" title="Hexo特殊字符转义">
+                <i class="fa fa-chevron-left"></i> Hexo特殊字符转义
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Lyx</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Software-Faults-Errors-and-Failures"><span class="nav-number">1.</span> <span class="nav-text">Software Faults, Errors and Failures</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Verification-and-Validation"><span class="nav-number">2.</span> <span class="nav-text">Verification and Validation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Testing-Goals-Based-on-Test-Process-Maturity"><span class="nav-number">3.</span> <span class="nav-text">Testing Goals Based on Test Process Maturity</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#What-is-Software-testing"><span class="nav-number">4.</span> <span class="nav-text">What is Software testing?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Why-Do-We-Test-Software"><span class="nav-number">5.</span> <span class="nav-text">Why Do We Test Software ?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Complexity-of-Testing-Software"><span class="nav-number">6.</span> <span class="nav-text">Complexity of Testing Software</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Data-Abstraction"><span class="nav-number">7.</span> <span class="nav-text">Data Abstraction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Coverage-Criteria"><span class="nav-number">8.</span> <span class="nav-text">Coverage Criteria</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Regression-Testing"><span class="nav-number">9.</span> <span class="nav-text">Regression Testing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Test-Automation"><span class="nav-number">10.</span> <span class="nav-text">Test Automation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Black-box-testing-amp-White-box-testing-amp-Model-based-testing"><span class="nav-number">11.</span> <span class="nav-text">Black-box testing &amp; White-box testing &amp; Model-based testing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Model-based-testing"><span class="nav-number">12.</span> <span class="nav-text">Model-based testing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Testing-can-be-broken-up-into-four-general-types-of-activities"><span class="nav-number">13.</span> <span class="nav-text">Testing can be broken up into four general types of activities</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Agile-Testing"><span class="nav-number">14.</span> <span class="nav-text">Agile Testing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#What-is-Junit"><span class="nav-number">15.</span> <span class="nav-text">What is Junit</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#What-is-Framework"><span class="nav-number">16.</span> <span class="nav-text">What is Framework</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#What-is-Unit-Testing"><span class="nav-number">17.</span> <span class="nav-text">What is Unit Testing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-fixtures-and-annotations-in-Junit"><span class="nav-number">18.</span> <span class="nav-text">The fixtures and annotations in Junit</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Code-refactoring"><span class="nav-number">19.</span> <span class="nav-text">Code-refactoring</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Code-Integration"><span class="nav-number">20.</span> <span class="nav-text">Code-Integration</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Traceability"><span class="nav-number">21.</span> <span class="nav-text">Traceability</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Test-Evaluation"><span class="nav-number">22.</span> <span class="nav-text">Test Evaluation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Selenium"><span class="nav-number">23.</span> <span class="nav-text">Selenium</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#What-is-the-advantage-and-disadvantage-of-using-Selenium-Testing-Tool"><span class="nav-number">24.</span> <span class="nav-text">What is the advantage and disadvantage of using Selenium Testing Tool?</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lyx</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>
