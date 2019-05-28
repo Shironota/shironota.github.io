@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="C语言," />
+  <meta name="keywords" content="C," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="1.什么是指针从根本上看，指针（pointer）是一个值为内存地址的变量（或数据对象）。正如char类型变量的值是字符，int类型变量的值是整数，而指针类型变量的值是地址。类比一下，c语言的数组，它本身是一种类型，但具体又可以区分为int型数组、double型数组、char型数组等；同理指针本身是一种数据类型，但根据它的指向，又有int型指针、double型指针、char型指针等。其实数组声明后得">
-<meta name="keywords" content="C语言">
+<meta name="description" content="介绍指针的基础概念和使用">
+<meta name="keywords" content="C">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C指针简介">
 <meta property="og:url" content="http://yoursite.com/2018/10/26/C指针简介/index.html">
 <meta property="og:site_name" content="Piccolo_Devil">
-<meta property="og:description" content="1.什么是指针从根本上看，指针（pointer）是一个值为内存地址的变量（或数据对象）。正如char类型变量的值是字符，int类型变量的值是整数，而指针类型变量的值是地址。类比一下，c语言的数组，它本身是一种类型，但具体又可以区分为int型数组、double型数组、char型数组等；同理指针本身是一种数据类型，但根据它的指向，又有int型指针、double型指针、char型指针等。其实数组声明后得">
+<meta property="og:description" content="介绍指针的基础概念和使用">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-28T04:54:35.189Z">
+<meta property="og:updated_time" content="2019-05-28T13:22:35.989Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C指针简介">
-<meta name="twitter:description" content="1.什么是指针从根本上看，指针（pointer）是一个值为内存地址的变量（或数据对象）。正如char类型变量的值是字符，int类型变量的值是整数，而指针类型变量的值是地址。类比一下，c语言的数组，它本身是一种类型，但具体又可以区分为int型数组、double型数组、char型数组等；同理指针本身是一种数据类型，但根据它的指向，又有int型指针、double型指针、char型指针等。其实数组声明后得">
+<meta name="twitter:description" content="介绍指针的基础概念和使用">
 
 
 
@@ -294,6 +294,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -321,7 +343,9 @@
       
 
       
-        <h3 id="1-什么是指针"><a href="#1-什么是指针" class="headerlink" title="1.什么是指针"></a>1.什么是指针</h3><p>从根本上看，指针（pointer）是一个值为内存地址的变量（或数据对象）。正如char类型变量的值是字符，int类型变量的值是整数，而指针类型变量的值是地址。类比一下，c语言的数组，它本身是一种类型，但具体又可以区分为int型数组、double型数组、char型数组等；同理指针本身是一种数据类型，但根据它的指向，又有int型指针、double型指针、char型指针等。其实数组声明后得到的那个变量就是指针变量。<br>计算机的硬件指令非常依赖地址，指针在某种程度上把想传达的指令以更接近机器的方式表达，因此使用指针能够使程序更加高效（但也可能会带来更多的麻烦）。</p>
+        <p>介绍指针的基础概念和使用</p>
+<a id="more"></a>
+<h3 id="1-什么是指针"><a href="#1-什么是指针" class="headerlink" title="1.什么是指针"></a>1.什么是指针</h3><p>从根本上看，指针（pointer）是一个值为内存地址的变量（或数据对象）。正如char类型变量的值是字符，int类型变量的值是整数，而指针类型变量的值是地址。类比一下，c语言的数组，它本身是一种类型，但具体又可以区分为int型数组、double型数组、char型数组等；同理指针本身是一种数据类型，但根据它的指向，又有int型指针、double型指针、char型指针等。其实数组声明后得到的那个变量就是指针变量。<br>计算机的硬件指令非常依赖地址，指针在某种程度上把想传达的指令以更接近机器的方式表达，因此使用指针能够使程序更加高效（但也可能会带来更多的麻烦）。</p>
 <h3 id="2-指针的基本概念与使用"><a href="#2-指针的基本概念与使用" class="headerlink" title="2.指针的基本概念与使用"></a>2.指针的基本概念与使用</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">exchange</span><span class="params">(<span class="keyword">int</span> *a, <span class="keyword">int</span> *b)</span></span>;	<span class="comment">//函数原型</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span>	<span class="comment">//函数定义</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp = a;</span><br><span class="line">    a = b;</span><br><span class="line">    b = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x = <span class="number">5</span>, y = <span class="number">10</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"before:\nx = %d\ty = %d\n"</span>, x, y);</span><br><span class="line">    exchange(&amp;x, &amp;y);	<span class="comment">//传递的是地址</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"after:\nx = %d\ty = %d\n"</span>, x, y);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> m = <span class="number">2</span>, n = <span class="number">6</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"before:\nm = %d\tn = %d\n"</span>, m, n);</span><br><span class="line">    swap(m,n);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"after:\nm = %d\tn = %d\n"</span>, m, n);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> *p;	<span class="comment">//声明一个指向int类型的指针（指针变量记得初始化，否则野指针带来的问题很大</span></span><br><span class="line">    p = &amp;x;	<span class="comment">//p指向x</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"p = %d\n"</span>, p);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"*p = %d\n"</span>, *p);	<span class="comment">//间接运算符*，也称解引用运算符，找出指针指向的值</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">exchange</span><span class="params">(<span class="keyword">int</span> *a, <span class="keyword">int</span> *b)</span>	<span class="comment">//a的值是&amp;x，a指向x，*a可以表示x的具体值</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp;</span><br><span class="line">    temp = *a;	<span class="comment">//因为要交换的是数值而不是地址，所以temp = *a</span></span><br><span class="line">    *a = *b;</span><br><span class="line">    *b = temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="3-指针和数组"><a href="#3-指针和数组" class="headerlink" title="3.指针和数组"></a>3.指针和数组</h3><p>数组名是数组首元素的地址<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> day[<span class="number">12</span>] = &#123;<span class="number">31</span>, <span class="number">28</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>&#125;;</span><br><span class="line">    <span class="keyword">if</span>(day == &amp;day[<span class="number">0</span>])</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">12</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Month %2d has %d days.\n"</span>, i + <span class="number">1</span>, *(day + i));</span><br><span class="line">            <span class="comment">//day是数组首元素地址，day+i是元素day[i]的地址</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>实际上，C语言标准在描述数组表示法时确实借助了指针，也就是说，定义day[n]的意思就是<em>(day+n)。可以认为</em>(day+n)的意思是“到内存的day位置，然后移动n个单元，检索储存在那里的值“。</p>
@@ -342,7 +366,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/C语言/" rel="tag"># C语言</a>
+            <a href="/tags/C/" rel="tag"># C</a>
           
         </div>
       
@@ -455,7 +479,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
