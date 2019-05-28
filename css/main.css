@@ -1453,6 +1453,9 @@ pre .javascript .function {
 .page-post-detail .post-type-quote .post-tags {
   display: none;
 }
+.page-home #posts article .post-body {
+  text-align: center;
+}
 .posts-expand .post-title {
   text-align: center;
   word-break: break-word;
@@ -1823,7 +1826,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #4a6274;
+  background: #c6e882;
 }
 .links-of-blogroll {
   font-size: 13px;
