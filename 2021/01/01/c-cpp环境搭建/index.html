@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Piccolo_Devil">
 <meta property="og:description" content="C/C++环境搭建">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-01-04T10:18:42.096Z">
+<meta property="og:updated_time" content="2021-01-04T11:09:58.590Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C&#x2F;C++环境搭建">
 <meta name="twitter:description" content="C/C++环境搭建">
@@ -349,12 +349,12 @@
 <h2 id="C编译器"><a href="#C编译器" class="headerlink" title="C编译器"></a>C编译器</h2><blockquote>
 <p> 一个现代编译器的主要工作流程：源代码（source code）→ 预处理器（preprocessor）→ 编译器（compiler）→ 汇编程序（assembler）→ 目标代码（object code）→ 链接器（linker）→ 可执行文件（executables），最后打包好的文件就可以给电脑去判读运行了。</p>
 </blockquote>
-<h3 id="GNU"><a href="#GNU" class="headerlink" title="GNU"></a>GNU</h3><p><em><strong>GNU’s Not Unix. </strong>GNU is an extensive collection of free software, which can be used as an operating system or can be used in parts with other operating systems. The use of the completed GNU tools led to the family of operating systems popularly known as Linux. Most of GNU is licensed under the GNU Project’s own General Public License.</em><a href="https://www.gnu.org/gnu/thegnuproject.html" target="_blank" rel="noopener">关于GNU</a></p>
+<h3 id="GNU"><a href="#GNU" class="headerlink" title="GNU"></a>GNU</h3><p><a href="https://www.gnu.org/gnu/thegnuproject.html" target="_blank" rel="noopener"><strong>GNU’s Not Unix. </strong></a>GNU is an extensive collection of free software, which can be used as an operating system or can be used in parts with other operating systems. The use of the completed GNU tools led to the family of operating systems popularly known as Linux. Most of GNU is licensed under the GNU Project’s own General Public License.</p>
 <blockquote>
 <p>Unix 系统被发明之后，大家用的很爽。但是后来开始收费和商业闭源了。一个叫 RMS 的大叔觉得很不爽，于是发起 GNU 计划，模仿 Unix 的界面和使用方式，从头做一个开源的版本。然后他自己做了编辑器 Emacs 和编译器 GCC。GNU 是一个计划或者叫运动。在这个旗帜下成立了 FSF，起草了 GPL 等。接下来大家纷纷在 GNU 计划下做了很多的工作和项目，基本实现了当初的计划。包括核心的 gcc 和 glibc。但是 GNU 系统缺少操作系统内核。原定的内核叫 HURD，一直完不成。同时 BSD（一种 UNIX 发行版）陷入版权纠纷，x86 平台开发暂停。然后一个叫 Linus 的同学为了在 PC 上运行 Unix，在 Minix 的启发下，开发了 Linux。注意，Linux 只是一个系统内核，系统启动之后使用的仍然是 gcc 和 bash 等软件。Linus 在发布 Linux 的时候选择了 GPL，因此符合 GNU 的宗旨。最后，大家突然发现，这玩意不正好是 GNU 计划缺的么。于是合在一起打包发布叫 GNU / Linux。然后大家念着念着省掉了前面部分，变成了 Linux 系统。<a href="https://www.zhihu.com/question/319783573/answer/656033035" target="_blank" rel="noopener">摘自知乎匿名用户</a></p>
 </blockquote>
-<h3 id="GCC"><a href="#GCC" class="headerlink" title="GCC"></a>GCC</h3><p><em>The GNU Compiler Collection (GCC) is a compiler system produced by the GNU Project <strong>supporting various programming languages</strong>. GCC is a key component of the GNU toolchain and the standard compiler for most projects related to GNU and Linux, including the Linux kernel.</em> </p>
-<p><em>The GNU Compiler Collection includes front ends for C, C++, Objective-C, Fortran, Ada, Go, and D, as well as libraries for these languages (libstdc++,…). GCC was originally written as the compiler for the GNU operating system.</em></p>
+<h3 id="GCC"><a href="#GCC" class="headerlink" title="GCC"></a>GCC</h3><p>The GNU Compiler Collection (GCC) is a compiler system produced by the GNU Project <strong>supporting various programming languages</strong>. GCC is a key component of the GNU toolchain and the standard compiler for most projects related to GNU and Linux, including the Linux kernel. </p>
+<p>The GNU Compiler Collection includes front ends for C, C++, Objective-C, Fortran, Ada, Go, and D, as well as libraries for these languages (libstdc++,…). GCC was originally written as the compiler for the GNU operating system.</p>
 <p>gcc与g++：</p>
 <p>gcc作为GNU项目的编译器，早期只是GUN C Compiler，即C编译器。后来由于项目的发展，gcc中集成了其他不同语言的编译器。于是gcc也就成了GNU Compiler Collection，即不同语言编译器的合集。而g++即是gcc中的c++编译器。</p>
 <p>举个例子：你便写了一段程序，代码后缀命名为.c，那么它会调用gcc中的c编译器和linker去链接c的library。如果代码后缀为.cpp，则调用g++编译器，并且linker链接c++的library。</p>
