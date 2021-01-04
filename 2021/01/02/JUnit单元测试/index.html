@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="软件测试," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="什么是单元测试？ 单元测试负责对最小的软件设计单元（模块）进行验证，它使用软件设计文档中对模块的描述作为指南，对重要的程序分支进行测试以发现模块中的错误。 这里的最小可测试单元通常是指函数或者类。 什么是单元测试框架？ 对于单元测试框架来讲，它主要完成以下几件事。 提供用例组织与执行： 当你的测试用例只有几条时，可以不必考虑用例的组织，但是，当测试用例达到成百上千条时，大量的测试用例堆砌在一起，就">
+<meta name="keywords" content="软件测试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JUnit单元测试">
+<meta property="og:url" content="http://yoursite.com/2021/01/02/JUnit单元测试/index.html">
+<meta property="og:site_name" content="Piccolo_Devil">
+<meta property="og:description" content="什么是单元测试？ 单元测试负责对最小的软件设计单元（模块）进行验证，它使用软件设计文档中对模块的描述作为指南，对重要的程序分支进行测试以发现模块中的错误。 这里的最小可测试单元通常是指函数或者类。 什么是单元测试框架？ 对于单元测试框架来讲，它主要完成以下几件事。 提供用例组织与执行： 当你的测试用例只有几条时，可以不必考虑用例的组织，但是，当测试用例达到成百上千条时，大量的测试用例堆砌在一起，就">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2021/01/02/JUnit单元测试/DisplayName.png">
+<meta property="og:image" content="http://yoursite.com/2021/01/02/JUnit单元测试/Assertions.png">
+<meta property="og:updated_time" content="2021-01-04T11:21:51.201Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JUnit单元测试">
+<meta name="twitter:description" content="什么是单元测试？ 单元测试负责对最小的软件设计单元（模块）进行验证，它使用软件设计文档中对模块的描述作为指南，对重要的程序分支进行测试以发现模块中的错误。 这里的最小可测试单元通常是指函数或者类。 什么是单元测试框架？ 对于单元测试框架来讲，它主要完成以下几件事。 提供用例组织与执行： 当你的测试用例只有几条时，可以不必考虑用例的组织，但是，当测试用例达到成百上千条时，大量的测试用例堆砌在一起，就">
+<meta name="twitter:image" content="http://yoursite.com/2021/01/02/JUnit单元测试/DisplayName.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2021/01/02/JUnit单元测试/"/>
+
+
+
+
+
+  <title>JUnit单元测试 | Piccolo_Devil</title>
+  
+
+
+
+
+
+
+
+
+  <!-- 把这段代码加入 themes/next/layout/_layout.swig 的 </body> 前 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"><a href="https://github.com/Shironota" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Piccolo_Devil</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/02/JUnit单元测试/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lyx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Piccolo_Devil">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JUnit单元测试</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-02T19:16:36+08:00">
+                2021-01-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件测试/" itemprop="url" rel="index">
+                    <span itemprop="name">软件测试</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="什么是单元测试？"><a href="#什么是单元测试？" class="headerlink" title="什么是单元测试？"></a>什么是单元测试？</h3><hr>
+<p>单元测试负责对最小的软件设计单元（模块）进行验证，它使用软件设计文档中对模块的描述作为指南，对重要的程序分支进行测试以发现模块中的错误。</p>
+<p>这里的最小可测试单元通常是指函数或者类。</p>
+<h3 id="什么是单元测试框架？"><a href="#什么是单元测试框架？" class="headerlink" title="什么是单元测试框架？"></a>什么是单元测试框架？</h3><hr>
+<p>对于单元测试框架来讲，它主要完成以下几件事。</p>
+<p><strong>提供用例组织与执行：</strong> 当你的测试用例只有几条时，可以不必考虑用例的组织，但是，当测试用例达到成百上千条时，大量的测试用例堆砌在一起，就产生了扩展性与维护性等问题，需要考虑用例的规范与组织问题了。单元测试框架就是用来解决这个问题的。</p>
+<p><strong>提供丰富的断言方法：</strong> 不论是功能测试，还是单元测试，在用例执行完成之后都需要将实际结果与进行预期结果的进行比较（断言），从而断定用例是否执行通过。单元测试框架一般会提供丰富的断言方法。例如，判断相等/不等、包含/不包含、True/False的断言方法等。</p>
+<p><strong>提供丰富的日志：</strong> 当测试用例执行失败时能抛出清晰的失败原因，当所有用例执行完成后能提供丰富的执行结果。例如，总执行时间、失败用例数、成功用例数等。</p>
+<p>从这些特性来看单元测试框架的作用是：<strong>帮助我们更自动化测试完成测试，所以，它是自动化测试的基础。</strong></p>
+<h3 id="JUnit"><a href="#JUnit" class="headerlink" title="JUnit"></a>JUnit</h3><hr>
+<p>JUnit 是一个编写可重复测试的简单框架。它是单元测试框架的 xUnit 架构的一个实例。</p>
+<h4 id="JUnit编写单元测试"><a href="#JUnit编写单元测试" class="headerlink" title="JUnit编写单元测试"></a>JUnit编写单元测试</h4><hr>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.junitdemo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.assertEquals;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JUnitDemo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//assertEquals() 方法用于断言两个值是否相关。</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">myFirstTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        assertEquals(<span class="number">2</span> + <span class="number">2</span>, <span class="number">4</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>被测试类Count</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Count</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 计算并返回两个参数的和</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x ,<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x + y;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 测试类CountTest</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.assertEquals;</span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CountTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testAdd</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Count count = <span class="keyword">new</span> Count();</span><br><span class="line">        <span class="keyword">int</span> result = count.add(<span class="number">2</span>,<span class="number">2</span>);</span><br><span class="line">        assertEquals(result, <span class="number">4</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="JUnit注解"><a href="#JUnit注解" class="headerlink" title="JUnit注解"></a>JUnit注解</h4><hr>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><strong>注解</strong></th>
+<th style="text-align:center"><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">@Test</td>
+<td style="text-align:center">标识一条测试用例</td>
+</tr>
+<tr>
+<td style="text-align:center">@Ignore</td>
+<td style="text-align:center">忽略的测试用例</td>
+</tr>
+<tr>
+<td style="text-align:center">@Before</td>
+<td style="text-align:center">每一个测试方法之前运行</td>
+</tr>
+<tr>
+<td style="text-align:center">@After</td>
+<td style="text-align:center">每一个测试方法之后运行</td>
+</tr>
+<tr>
+<td style="text-align:center">@BeforeClass</td>
+<td style="text-align:center">所有测试开始之前运行</td>
+</tr>
+<tr>
+<td style="text-align:center">@AfterClass</td>
+<td style="text-align:center">所有测试结果之后运行</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>JUnit注解例子</strong></p>
+<p>被测试类Count</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.junitdemo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Count</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 计算两数之和</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x + y;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 计算两数相除</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">division</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a / b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试类CountTest</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.junitdemo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.assertEquals;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.Ignore;</span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CountTest</span> </span>&#123;</span><br><span class="line"><span class="comment">//    @Test</span></span><br><span class="line"><span class="comment">//    public void testAdd() &#123;</span></span><br><span class="line"><span class="comment">//        Count count = new Count();</span></span><br><span class="line"><span class="comment">//        int result = count.add(2, 2);</span></span><br><span class="line"><span class="comment">//        assertEquals(result, 4);</span></span><br><span class="line"><span class="comment">//    &#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//验证超时</span></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    在testAdd()用例中设置timeout=100,说明的用例的运行时间不能超过100毫秒，但故意在用例添加sleep()方法休眠101毫秒，所以会导致用例失败。</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Test</span>(timeout = <span class="number">100</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testAdd</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        Thread.sleep(<span class="number">101</span>);</span><br><span class="line">        <span class="keyword">new</span> Count().add(<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//验证抛出异常</span></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    在Java中被除数不能为0，所以8/0会报ArithmeticException异常,在@Test中设置expected=ArithmeticException.class，说明抛该异常符合预期。</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Test</span>(expected = ArithmeticException.class)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testDivision</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> Count().division(<span class="number">8</span>, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//跳过该条用例</span></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    @Ignore表来标识该用例跳过,不管用例运行成功还是失败。</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Ignore</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testAdd2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Count count = <span class="keyword">new</span> Count();</span><br><span class="line">        <span class="keyword">int</span> result = count.add(<span class="number">2</span>, <span class="number">2</span>);</span><br><span class="line">        assertEquals(result, <span class="number">5</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="JUnit注解之Fixture"><a href="#JUnit注解之Fixture" class="headerlink" title="JUnit注解之Fixture"></a>JUnit注解之Fixture</h4><hr>
+<p>Test Fixture 是指一个测试运行所需的固定环境，准确的定义：</p>
+<blockquote>
+<p>The test fixture is everything we need to have in place to exercise the SUT</p>
+</blockquote>
+<p>在进行测试时，我们通常需要把环境设置成已知状态（如创建对象、获取资源等）来创建测试，每次测试开始时都处于一个固定的初始状态；测试结果后需要将测试状态还原，所以，测试执行所需要的固定环境称为 Test Fixture。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.junitdemo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestFixture</span> </span>&#123;</span><br><span class="line">    <span class="comment">//在当前测试类开始时运行。</span></span><br><span class="line">    <span class="meta">@BeforeClass</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">beforeClass</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"-------------------beforeClass"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//在当前测试类结束时运行。</span></span><br><span class="line">    <span class="meta">@AfterClass</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">afterClass</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"-------------------afterClass"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//每个测试方法运行之前运行</span></span><br><span class="line">    <span class="meta">@Before</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">before</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"=====before"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//每个测试方法运行之后运行</span></span><br><span class="line">    <span class="meta">@After</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">after</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"=====after"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testAdd1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> result = <span class="keyword">new</span> Count().add(<span class="number">5</span>, <span class="number">3</span>);</span><br><span class="line">        assertEquals(<span class="number">8</span>, result);</span><br><span class="line">        System.out.println(<span class="string">"test Run testadd1"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testAdd2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> result = <span class="keyword">new</span> Count().add(<span class="number">15</span>, <span class="number">13</span>);</span><br><span class="line">        assertEquals(<span class="number">28</span>, result);</span><br><span class="line">        System.out.println(<span class="string">"test Run testadd2"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>程序执行结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-------------------beforeClass</span><br><span class="line">=====before</span><br><span class="line">test Run testadd1</span><br><span class="line">=====after</span><br><span class="line">=====before</span><br><span class="line">test Run testadd2</span><br><span class="line">=====after</span><br><span class="line">-------------------afterClass</span><br></pre></td></tr></table></figure>
+<h4 id="JUnit用例执行顺序"><a href="#JUnit用例执行顺序" class="headerlink" title="JUnit用例执行顺序"></a>JUnit用例执行顺序</h4><hr>
+<p><strong>@FixMethodOrder</strong></p>
+<p>JUnit 通过 <strong>@FixMethodOrder</strong> 注解来控制测试方法的执行顺序的。<strong>@FixMethodOrder</strong> 注解的参数是 <strong>org.junit.runners.MethodSorters</strong> 对象，在枚举类 <strong>org.junit.runners.MethodSorters</strong> 中定义了如下三种顺序类型：</p>
+<ul>
+<li>MethodSorters.JVM</li>
+</ul>
+<blockquote>
+<p>Leaves the test methods in the order returned by the JVM. Note that the order from the JVM may vary from run to run (按照JVM得到的方法顺序，也就是代码中定义的方法顺序)</p>
+</blockquote>
+<ul>
+<li>MethodSorters.DEFAULT(默认的顺序)</li>
+</ul>
+<blockquote>
+<p>Sorts the test methods in a deterministic, but not predictable, order() (以确定但不可预期的顺序执行)</p>
+</blockquote>
+<ul>
+<li>MethodSorters.NAME_ASCENDING</li>
+</ul>
+<blockquote>
+<p>Sorts the test methods by the method name, in lexicographic order, with Method.toString() used as a tiebreaker (按方法名字母顺序执行)</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.junitdemo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.FixMethodOrder;</span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"><span class="keyword">import</span> org.junit.runners.MethodSorters;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.assertEquals;</span><br><span class="line"></span><br><span class="line"><span class="meta">@FixMethodOrder</span>(MethodSorters.NAME_ASCENDING)</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    JVM: 按照JVM得到的方法顺序，也就是代码中定义的方法顺序，在这个例子中执行顺序为TestCase1()-&gt;TestCase2()-&gt;TestAa()</span></span><br><span class="line"><span class="comment">    DEFAULT: 默认的顺序，以确定但不可预期的顺序执行</span></span><br><span class="line"><span class="comment">    NAME_ASCENDING: 按方法名字母顺序执行，在这个例子中执行顺序为TestAa()-&gt;TestCase1()-&gt;TestCase2()</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestRunSequence</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TestCase1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        assertEquals(<span class="number">2</span> + <span class="number">2</span>, <span class="number">4</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TestCase2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        assertEquals(<span class="number">2</span> + <span class="number">2</span>, <span class="number">4</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TestAa</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        assertEquals(<span class="string">"hello"</span>, <span class="string">"hi"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="JUnit断言方法"><a href="#JUnit断言方法" class="headerlink" title="JUnit断言方法"></a>JUnit断言方法</h4><hr>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">方法</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">assertArrayEquals(expecteds, actuals)</td>
+<td style="text-align:left">查看两个数组是否相等。</td>
+</tr>
+<tr>
+<td style="text-align:left">assertEquals(expected, actual)</td>
+<td style="text-align:left">查看两个对象是否相等。类似于字符串比较使用的equals()方法。</td>
+</tr>
+<tr>
+<td style="text-align:left">assertNotEquals(first, second)</td>
+<td style="text-align:left">查看两个对象是否不相等。</td>
+</tr>
+<tr>
+<td style="text-align:left">assertNull(object)</td>
+<td style="text-align:left">查看对象是否为空。</td>
+</tr>
+<tr>
+<td style="text-align:left">assertNotNull(object)</td>
+<td style="text-align:left">查看对象是否不为空。</td>
+</tr>
+<tr>
+<td style="text-align:left">assertSame(expected, actual)</td>
+<td style="text-align:left">查看两个对象的引用是否相等。类似于使用“==”比较两个对象。</td>
+</tr>
+<tr>
+<td style="text-align:left">assertNotSame(unexpected, actual)</td>
+<td style="text-align:left">查看两个对象的引用是否不相等。类似于使用“!=”比较两个对象。</td>
+</tr>
+<tr>
+<td style="text-align:left">assertTrue(condition)</td>
+<td style="text-align:left">查看运行结果是否为true。</td>
+</tr>
+<tr>
+<td style="text-align:left">assertFalse(condition)</td>
+<td style="text-align:left">查看运行结果是否为false。</td>
+</tr>
+<tr>
+<td style="text-align:left">assertThat(actual, matcher)</td>
+<td style="text-align:left">查看实际值是否满足指定的条件。</td>
+</tr>
+<tr>
+<td style="text-align:left">fail()</td>
+<td style="text-align:left">让测试失败。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>一个使用assertTrue的例子</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.junitdemo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AssertTest</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 判断一个数是否为素数</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Boolean <span class="title">Prime</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= Math.sqrt(n); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (n % i == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testPrime</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = <span class="number">7</span>;</span><br><span class="line">        assertTrue(AssertTest.Prime(n));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="JUnit测试批量运行"><a href="#JUnit测试批量运行" class="headerlink" title="JUnit测试批量运行"></a>JUnit测试批量运行</h4><hr>
+<p><strong>一、IntelliJ IDEA中设置</strong></p>
+<p>Run菜单 —&gt; Edit Configurations…选项</p>
+<p>在 Junit 目录下，选择任意一个用例文件。</p>
+<ul>
+<li>Test Kind : 选择用例的运行类型/级别。</li>
+<li>packages : 选择用例运行的目录，即你的测试用例目录。</li>
+</ul>
+<p>设置完成后，点击 “OK” 按钮。</p>
+<p><strong>二、测试套件</strong></p>
+<p>JUnit 提供了一种批量运行测试类的方法，叫测试套件。</p>
+<p>测试套件的写法需要遵循以下原则：</p>
+<ol>
+<li>创建一个空类作为测试套件的入口；</li>
+<li>使用注解 <strong>org.junit.runner.RunWith</strong> 和 <strong>org.junit.runners.Suite.SuitClasses</strong> 修饰这个空类。</li>
+<li>将 <strong>org.junit.runners.Suite</strong> 作为参数传入给注解 <strong>RunWith</strong>，以提示 JUnit 为此类测试使用套件运行器执行。</li>
+<li>将需要放入此测试套件的测试类组成数组作为注解 SuiteClasses 的参数。</li>
+<li>保证这个空类使用public修饰，而且存在公开的不带任何参数的构造函数。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.junitdemo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.runner.RunWith;</span><br><span class="line"><span class="keyword">import</span> org.junit.runners.Suite;</span><br><span class="line"><span class="keyword">import</span> org.junit.runners.Suite.SuiteClasses;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RunWith</span>(Suite.class)</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 把需要运行的测试类放到 SuiteClasses 中，运行 runAllTest 测试类，即可批量执行测试用例。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@SuiteClasses</span>(&#123;</span><br><span class="line">        CountTest.class,</span><br><span class="line">        TestFixture.class,</span><br><span class="line">        AssertTest.class,</span><br><span class="line">        TestRunSequence.class,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RunAllTest</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>以上大概就是JUnit4的主要内容了，接下来了解一下JUnit5的一些新功能</strong></p>
+<h3 id="JUnit5"><a href="#JUnit5" class="headerlink" title="JUnit5"></a>JUnit5</h3><hr>
+<blockquote>
+<p>JUnit 5 is the next generation of JUnit. The goal is to create an up-to-date foundation for developer-side testing on the JVM. This includes focusing on Java 8 and above, as well as enabling many different styles of testing.</p>
+<p><strong>What is JUnit5?</strong></p>
+<p>Unlike previous versions of JUnit, JUnit 5 is composed of several different modules from three different sub-projects.</p>
+<p><strong>JUnit 5 = JUnit Platform + JUnit Jupiter + JUnit Vintage</strong></p>
+<p><strong>The JUnit Platform</strong> serves as a foundation for launching testing frameworks on the JVM. It also defines the TestEngine API for developing a testing framework that runs on the platform. Furthermore, the platform provides a Console Launcher to launch the platform from the command line and a JUnit 4 based Runner for running any TestEngine on the platform in a JUnit 4 based environment. First-class support for the JUnit Platform also exists in popular IDEs (see IntelliJ IDEA, Eclipse, NetBeans, and Visual Studio Code) and build tools (see Gradle, Maven, and Ant).</p>
+<p><strong>JUnit Jupiter</strong> is the combination of the new programming model and extension model for writing tests and extensions in JUnit 5. The Jupiter sub-project provides a TestEngine for running Jupiter based tests on the platform.</p>
+<p><strong>JUnit Vintage</strong> provides a TestEngine for running JUnit 3 and JUnit 4 based tests on the platform.</p>
+</blockquote>
+<p><strong>JUnit 5 = JUnit Platform + JUnit Jupiter + JUnit Vintage</strong></p>
+<ul>
+<li>JUnit Platform 是在JVM上启动测试框架的基础。</li>
+<li>JUnit Jupiter 是JUnit5扩展的新的编程模型和扩展模型，用来编写测试用例。Jupiter子项目为在平台上运行Jupiter的测试提供了一个TestEngine （测试引擎）。</li>
+<li>JUnit Vintage 提供了一个在平台上运行 JUnit3 和 JUnit4 的 TestEngine 。</li>
+</ul>
+<p>一个简单的JUnit5测试用例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.junitdemo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.jupiter.api.Assertions.assertEquals;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.jupiter.api.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JUnit5Demo</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">myFirstTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        assertEquals(<span class="number">2</span>, <span class="number">1</span> + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>首先，导入测试测试注解（@Test）和断言方法（assertEquals）的路径不同。</p>
+<p>其次，不需要手动把测试和测试方法声明为 public 了。</p>
+<h4 id="JUnit5的新用法"><a href="#JUnit5的新用法" class="headerlink" title="JUnit5的新用法"></a>JUnit5的新用法</h4><hr>
+<h5 id="JUnit5常用注解"><a href="#JUnit5常用注解" class="headerlink" title="JUnit5常用注解"></a><strong>JUnit5常用注解</strong></h5><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>注解</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>@Test</strong></td>
+<td>表明这是一个测试方法，类比于 JUnit 4 的<code>@Test</code>但是不支持任何参数</td>
+</tr>
+<tr>
+<td>@ParameterizedTest</td>
+<td>带参数的测试</td>
+</tr>
+<tr>
+<td>@RepeatedTest</td>
+<td>使测试重复执行</td>
+</tr>
+<tr>
+<td>@TestFactory</td>
+<td>该方法是一个支持动态测试的测试工厂</td>
+</tr>
+<tr>
+<td>@TestTemplate</td>
+<td>该方法是一个测试模板，支持在不同的测试场景下的多次调用</td>
+</tr>
+<tr>
+<td>@TestMethodOrder</td>
+<td>配置测试方法的执行顺序</td>
+</tr>
+<tr>
+<td>@TestInstance</td>
+<td>配置测试实例的生命周期</td>
+</tr>
+<tr>
+<td><strong>@DisplayName</strong></td>
+<td>自定义显示名称</td>
+</tr>
+<tr>
+<td>@DisplayNameGeneration</td>
+<td>自定义显示名称生成器</td>
+</tr>
+<tr>
+<td><strong>@BeforeEach</strong></td>
+<td>该方法会在当前类的<code>每一个</code>测试方法<code>之前</code>执行，包括：<code>@Test</code>, <code>@RepeatedTest</code>, <code>@ParameterizedTest</code>, <code>@TestFactory</code>, 与 JUnit 4 的<code>@Before</code> 类似</td>
+</tr>
+<tr>
+<td><strong>@AfterEach</strong></td>
+<td>该方法会在当前类的<code>每一个</code>测试方法<code>之后</code>执行，包括：<code>@Test</code>, <code>@RepeatedTest</code>, <code>@ParameterizedTest</code>, <code>@TestFactory</code>, 与 JUnit 4 的<code>@After</code> 类似</td>
+</tr>
+<tr>
+<td><strong>@BeforeAll</strong></td>
+<td>该方法在当前类的<code>所有</code>测试方法<code>之前</code>执行，类似于 JUnit 4 的<code>@BeforeClass</code></td>
+</tr>
+<tr>
+<td><strong>@AfterAll</strong></td>
+<td>该方法在当前类的<code>所有</code>测试方法<code>之后</code>执行，类似于 JUnit 4 的<code>@AfterClass</code></td>
+</tr>
+<tr>
+<td>@Tag</td>
+<td>用于测试的过滤，类似于 JUnit 4 的 Category 和 TestNG 的 Group</td>
+</tr>
+<tr>
+<td><strong>@Disabled</strong></td>
+<td>禁用当前测试，类比于 JUnit 4 的<code>@Ignore</code></td>
+</tr>
+<tr>
+<td>@TempDir</td>
+<td>通过字段注入或参数注入提供一个临时目录</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 id="DisplayName用例"><a href="#DisplayName用例" class="headerlink" title="@DisplayName用例"></a><strong>@DisplayName用例</strong></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.junitdemo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.jupiter.api.*;</span><br><span class="line"></span><br><span class="line"><span class="meta">@DisplayName</span>(<span class="string">"display name demo"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DisplayNameDemo</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="meta">@DisplayName</span>(<span class="string">"simple name test"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">testSimpleName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="meta">@DisplayName</span>(<span class="string">"╯°□°）╯"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">testSpecialCharacters</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="meta">@DisplayName</span>(<span class="string">"😱"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">testWithDisplayNameContainingEmoji</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/01/02/JUnit单元测试/DisplayName.png" alt="DisplayName用例运行结果"></p>
+<h5 id="更强大的断言Assertions"><a href="#更强大的断言Assertions" class="headerlink" title="更强大的断言Assertions"></a><strong>更强大的断言Assertions</strong></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.junitdemo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.jupiter.api.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.time.Duration.ofMillis;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.time.Duration.ofMinutes;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.jupiter.api.Assertions.*;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JUnit5Assertions</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * assertEquals和assertTrue的消息放在第三个参数，而不是第一个</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">standardAssertions</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        assertEquals(<span class="number">2</span>, <span class="number">1</span> + <span class="number">1</span>);</span><br><span class="line">        assertEquals(<span class="number">4</span>, <span class="number">2</span> * <span class="number">2</span>, <span class="string">"The optional failure message is now the last parameter"</span>);</span><br><span class="line">        assertTrue(<span class="string">'a'</span> &lt; <span class="string">'b'</span>, () -&gt; <span class="string">"Assertion messages can be lazily evaluated -- "</span></span><br><span class="line">                + <span class="string">"to avoid constructing complex messages unnecessarily."</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * assertAll表示分组断言，每一个分组都会执行，任何一个分组执行失败都会导致该测试失败。</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">groupedAssertions</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// In a grouped assertion all assertions are executed, and all</span></span><br><span class="line">        <span class="comment">// failures will be reported together.</span></span><br><span class="line">        assertAll(<span class="string">"person"</span>,</span><br><span class="line">                () -&gt; assertEquals(<span class="string">"Jane"</span>, <span class="string">"Jane"</span>),</span><br><span class="line">                () -&gt; assertEquals(<span class="string">"Doe"</span>, <span class="string">"Doe"</span>)</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 但是同一个分组中（block）的断言之间有前后依赖关系，即如果前面的断言失败了，后面的断言不会执行。</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dependentAssertions</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// Within a code block, if an assertion fails the</span></span><br><span class="line">        <span class="comment">// subsequent code in the same block will be skipped.</span></span><br><span class="line">        assertAll(<span class="string">"properties"</span>,</span><br><span class="line">                () -&gt; &#123;</span><br><span class="line">                    String firstName = <span class="string">"Jane"</span>;</span><br><span class="line">                    assertNotNull(firstName);</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// Executed only if the previous assertion is valid.</span></span><br><span class="line">                    assertAll(<span class="string">"first name"</span>,</span><br><span class="line">                            () -&gt; assertTrue(firstName.startsWith(<span class="string">"J"</span>)),</span><br><span class="line">                            () -&gt; assertTrue(firstName.endsWith(<span class="string">"e"</span>))</span><br><span class="line">                    );</span><br><span class="line">                &#125;,</span><br><span class="line">                () -&gt; &#123;</span><br><span class="line">                    <span class="comment">// Grouped assertion, so processed independently</span></span><br><span class="line">                    <span class="comment">// of results of first name assertions.</span></span><br><span class="line">                    String lastName = <span class="string">"Doe"</span>;</span><br><span class="line">                    assertNotNull(lastName);</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// Executed only if the previous assertion is valid.</span></span><br><span class="line">                    assertAll(<span class="string">"last name"</span>,</span><br><span class="line">                            () -&gt; assertTrue(lastName.startsWith(<span class="string">"D"</span>)),</span><br><span class="line">                            () -&gt; assertTrue(lastName.endsWith(<span class="string">"e"</span>))</span><br><span class="line">                    );</span><br><span class="line">                &#125;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * assertThrows测试抛出的异常。</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">exceptionTesting</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Exception exception = assertThrows(ArithmeticException.class, () -&gt; divide(<span class="number">1</span>, <span class="number">0</span>));</span><br><span class="line">        assertEquals(<span class="string">"/ by zero"</span>, exception.getMessage());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">divide</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a / b;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * assertTimeout测试超时，assertTimeoutPreemptively表示抢占超时，即如果超时了，方法还没有返回，则立即中断执行。</span></span><br><span class="line"><span class="comment">     * java.time.Duration.ofMinutes()方法：公共持续时间(分钟)方法获得表示多个标准分钟的持续时间。minutes - 分钟数，正或负数。</span></span><br><span class="line"><span class="comment">     * java.time.Duration.ofMillis()方法：获取表示多个标准小时数的持续时间。millis - 毫秒数，正数或负数。</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">timeoutNotExceeded</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// The following assertion succeeds.</span></span><br><span class="line">        assertTimeout(ofMinutes(<span class="number">2</span>), () -&gt; &#123;</span><br><span class="line">            <span class="comment">// Perform task that takes less than 2 minutes.</span></span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">timeoutNotExceededWithResult</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// The following assertion succeeds, and returns the supplied object.</span></span><br><span class="line">        String actualResult = assertTimeout(ofMinutes(<span class="number">2</span>), () -&gt; <span class="string">"a result"</span>);</span><br><span class="line">        assertEquals(<span class="string">"a result"</span>, actualResult);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">timeoutExceeded</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// The following assertion fails with an error message similar to:</span></span><br><span class="line">        <span class="comment">// execution exceeded timeout of 10 ms by 91 ms</span></span><br><span class="line">        assertTimeout(ofMillis(<span class="number">10</span>), () -&gt; &#123;</span><br><span class="line">            <span class="comment">// Simulate task that takes more than 10 ms.</span></span><br><span class="line">            Thread.sleep(<span class="number">100</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">timeoutExceededWithPreemptiveTermination</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// The following assertion fails with an error message similar to:</span></span><br><span class="line">        <span class="comment">// execution timed out after 10 ms</span></span><br><span class="line">        assertTimeoutPreemptively(ofMillis(<span class="number">10</span>), () -&gt; &#123;</span><br><span class="line">            <span class="comment">// Simulate task that takes more than 10 ms.</span></span><br><span class="line">            Thread.sleep(<span class="number">100</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/01/02/JUnit单元测试/Assertions.png" alt="Assertions执行结果"></p>
+<p><del><strong>更多相关内容待学习补充(搬运)……</strong></del></p>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><hr>
+<p><a href="https://junit.org/junit5/docs/current/user-guide/#overview" target="_blank" rel="noopener">JUnit官方文档</a></p>
+<p><a href="http://www.testclass.net/junit" target="_blank" rel="noopener">http://www.testclass.net/junit</a></p>
+<p><a href="https://nkcoder.github.io/2020/02/junit5-tutorial/" target="_blank" rel="noopener">https://nkcoder.github.io/2020/02/junit5-tutorial/</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/软件测试/" rel="tag"># 软件测试</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/01/01/c-cpp环境搭建/" rel="next" title="C/C++环境搭建">
+                <i class="fa fa-chevron-left"></i> C/C++环境搭建
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Lyx</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是单元测试？"><span class="nav-number">1.</span> <span class="nav-text">什么是单元测试？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是单元测试框架？"><span class="nav-number">2.</span> <span class="nav-text">什么是单元测试框架？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JUnit"><span class="nav-number">3.</span> <span class="nav-text">JUnit</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JUnit编写单元测试"><span class="nav-number">3.1.</span> <span class="nav-text">JUnit编写单元测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JUnit注解"><span class="nav-number">3.2.</span> <span class="nav-text">JUnit注解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JUnit注解之Fixture"><span class="nav-number">3.3.</span> <span class="nav-text">JUnit注解之Fixture</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JUnit用例执行顺序"><span class="nav-number">3.4.</span> <span class="nav-text">JUnit用例执行顺序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JUnit断言方法"><span class="nav-number">3.5.</span> <span class="nav-text">JUnit断言方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JUnit测试批量运行"><span class="nav-number">3.6.</span> <span class="nav-text">JUnit测试批量运行</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JUnit5"><span class="nav-number">4.</span> <span class="nav-text">JUnit5</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JUnit5的新用法"><span class="nav-number">4.1.</span> <span class="nav-text">JUnit5的新用法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#JUnit5常用注解"><span class="nav-number">4.1.1.</span> <span class="nav-text">JUnit5常用注解</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#DisplayName用例"><span class="nav-number">4.1.2.</span> <span class="nav-text">@DisplayName用例</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#更强大的断言Assertions"><span class="nav-number">4.1.3.</span> <span class="nav-text">更强大的断言Assertions</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#References"><span class="nav-number">5.</span> <span class="nav-text">References</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lyx</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"right","width":175,"height":325},"mobile":{"show":true},"log":false});</script></body>
+</html>
