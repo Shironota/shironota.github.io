@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="树莓派,arch Linux," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="准备工具 树莓派 sd卡、读卡器 网线 电源线  烧录系统首先是要将树莓派要使用的系统烧录进sd卡，这里选择的是arch Linux arm  Arch Linux ARM著名轻量系统Arch Linux在ARM架构上的移植。注重对于开发者的简洁，任何可有可无的软件一律不自带。仅有命令行界面，不建议初学者使用。Arch Linux的软件策略是相当激进的，使用Arch Linux能用到最新的软件包，">
+<meta name="keywords" content="树莓派,arch Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RasPi 3b 安装arch Linux arm">
+<meta property="og:url" content="http://yoursite.com/2018/10/29/RasPi-3b-安装arch-Linux-arm/index.html">
+<meta property="og:site_name" content="Piccolo_Devil">
+<meta property="og:description" content="准备工具 树莓派 sd卡、读卡器 网线 电源线  烧录系统首先是要将树莓派要使用的系统烧录进sd卡，这里选择的是arch Linux arm  Arch Linux ARM著名轻量系统Arch Linux在ARM架构上的移植。注重对于开发者的简洁，任何可有可无的软件一律不自带。仅有命令行界面，不建议初学者使用。Arch Linux的软件策略是相当激进的，使用Arch Linux能用到最新的软件包，">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/10/29/RasPi-3b-安装arch-Linux-arm/a.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/29/RasPi-3b-安装arch-Linux-arm/b.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/29/RasPi-3b-安装arch-Linux-arm/c.png">
+<meta property="og:updated_time" content="2018-10-29T15:42:42.477Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RasPi 3b 安装arch Linux arm">
+<meta name="twitter:description" content="准备工具 树莓派 sd卡、读卡器 网线 电源线  烧录系统首先是要将树莓派要使用的系统烧录进sd卡，这里选择的是arch Linux arm  Arch Linux ARM著名轻量系统Arch Linux在ARM架构上的移植。注重对于开发者的简洁，任何可有可无的软件一律不自带。仅有命令行界面，不建议初学者使用。Arch Linux的软件策略是相当激进的，使用Arch Linux能用到最新的软件包，">
+<meta name="twitter:image" content="http://yoursite.com/2018/10/29/RasPi-3b-安装arch-Linux-arm/a.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/10/29/RasPi-3b-安装arch-Linux-arm/"/>
+
+
+
+
+
+  <title>RasPi 3b 安装arch Linux arm | Piccolo_Devil</title>
+  
+
+
+
+
+
+
+
+
+  <!-- 把这段代码加入 themes/next/layout/_layout.swig 的 </body> 前 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"><a href="https://github.com/Shironota" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Piccolo_Devil</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/29/RasPi-3b-安装arch-Linux-arm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lyx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Piccolo_Devil">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">RasPi 3b 安装arch Linux arm</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-29T10:57:10+08:00">
+                2018-10-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="准备工具"><a href="#准备工具" class="headerlink" title="准备工具"></a>准备工具</h3><ul>
+<li>树莓派</li>
+<li>sd卡、读卡器</li>
+<li>网线</li>
+<li>电源线</li>
+</ul>
+<h3 id="烧录系统"><a href="#烧录系统" class="headerlink" title="烧录系统"></a>烧录系统</h3><p>首先是要将树莓派要使用的系统烧录进sd卡，这里选择的是arch Linux arm</p>
+<blockquote>
+<p>Arch Linux ARM<br>著名轻量系统Arch Linux在ARM架构上的移植。注重对于开发者的简洁，任何可有可无的软件一律不自带。仅有命令行界面，不建议初学者使用。Arch Linux的软件策略是相当激进的，使用Arch Linux能用到最新的软件包，但也需要承担尝鲜可能的风险。</p>
+</blockquote>
+<p>正好之前在虚拟机里装好了manjaro系统，manjaro也是一款基于arch Linux的系统。现在只需要将sd卡连入manjaro，然后将系统烧录进sd卡即可。</p>
+<blockquote>
+<p><strong>注意</strong><br>虚拟机对usb3.0的兼容性普遍来说不太好，刚开始使用3.0接口的读卡器插入，出现设备在本机和虚拟机交替识别的情况，导致识别冲突无法正常使用。尝试之后发现2.0接口的不会出现这种情况。</p>
+</blockquote>
+<h4 id="sd卡分区"><a href="#sd卡分区" class="headerlink" title="sd卡分区"></a>sd卡分区</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo fdisk -l	<span class="comment">#列出所有分区表</span></span><br></pre></td></tr></table></figure>
+<p>找到sd卡盘符对应的设备名sdx（这里是sdb1）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo fdisk /dev/sdb1</span><br></pre></td></tr></table></figure>
+<p>在fdisk提示命令下进行下列操作：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">o	<span class="comment">#删除全部分区</span></span><br><span class="line">n	<span class="comment">#新建分区</span></span><br><span class="line">p	<span class="comment">#选择为主分区，接下来的主分区设置直接回车使用默认值，最后输入+100M设置结束</span></span><br><span class="line">t</span><br><span class="line">c	<span class="comment">#设置刚才的主分区类型为W95 FAT32（LBA）</span></span><br><span class="line">n</span><br><span class="line">p</span><br><span class="line">2	<span class="comment">#选择第2个分区，然后回车使用默认值完成第2个分区的设置</span></span><br><span class="line">w	<span class="comment">#写入保存，退出fdisk</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="挂载与安装"><a href="#挂载与安装" class="headerlink" title="挂载与安装"></a>挂载与安装</h4><blockquote>
+<p>挂载：把硬盘设备与某个目录相关联，关联的动作为挂载</p>
+</blockquote>
+<p>将第1分区格式化并挂载到boot<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mkfs.vfat /dev/sdb1</span><br><span class="line">$ mkdir boot</span><br><span class="line">$ mount /dev/sdb1 boot</span><br></pre></td></tr></table></figure></p>
+<p>将第2分区格式化并挂载到root<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mkfs.ext4 /dev/sdb2</span><br><span class="line">$ mkdir root</span><br><span class="line">$ mount /dev/sdb2 root</span><br></pre></td></tr></table></figure></p>
+<p>下载arch Linux arm系统并解压到sd卡<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ wget https://mirrors.tuna.tsinghua.edu.cn/archlinuxarm/os/ArchLinuxARM-rpi-3-latest.tar.gz</span><br><span class="line">$ sudo tar -xzvpf ArchLinuxARM-rpi-3-latest.tar.gz -C root</span><br><span class="line">$ sync</span><br><span class="line">$ sudo mv root/boot/* boot</span><br><span class="line">$ sudo umount boot root</span><br></pre></td></tr></table></figure></p>
+<h3 id="树莓派连接笔记本"><a href="#树莓派连接笔记本" class="headerlink" title="树莓派连接笔记本"></a>树莓派连接笔记本</h3><p>将烧录好系统的sd卡插入树莓派然后启动树莓派，笔记本上设置好WiFi网络共享，然后通过网线连接树莓派和笔记本。</p>
+<blockquote>
+<p><strong>注意</strong><br>树莓派系统正常启动的话，电源红灯旁边会有一个绿色的灯亮起，若启动树莓派时绿灯未亮，则表明树莓派未启动系统，可能是之前烧录系统出错。</p>
+</blockquote>
+<h4 id="ssh连接"><a href="#ssh连接" class="headerlink" title="ssh连接"></a>ssh连接</h4><p>这里选择了一个ssh连接工具：Xshell<br>默认的用户名为alarm，密码为root<br>树莓派每次启动都会有一个ip，在命令行工具中输入arp -a查看并找到对应ip地址登录连接即可。<br><img src="/2018/10/29/RasPi-3b-安装arch-Linux-arm/a.png" alt="a"><br><img src="/2018/10/29/RasPi-3b-安装arch-Linux-arm/b.png" alt="b"></p>
+<h4 id="改源更新安装"><a href="#改源更新安装" class="headerlink" title="改源更新安装"></a>改源更新安装</h4><p>改源<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ su root	<span class="comment">#切换成管理员</span></span><br><span class="line">$ vi /etc/pacman.d/mirrorlist</span><br></pre></td></tr></table></figure></p>
+<p>将mirrorlist内容更换为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxarm/$repo/os/$arch</span><br></pre></td></tr></table></figure></p>
+<p>更新软件源<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pacman -Syyu</span><br></pre></td></tr></table></figure></p>
+<p>安装sudo<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pacman -S sudo</span><br></pre></td></tr></table></figure></p>
+<p>安装sudo时报错信息<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">warning: Public keyring not found; have you run <span class="string">'pacman-key --init'</span>?</span><br></pre></td></tr></table></figure></p>
+<p>解决措施<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ pacman-key --init</span><br><span class="line">$ pacman -S sudo</span><br></pre></td></tr></table></figure></p>
+<p>继续报错<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error: failed to commit transaction (invalid or corrupted package (PGP signature))</span><br></pre></td></tr></table></figure></p>
+<p>解决措施<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ pacman-key --populate</span><br><span class="line">$ pacman -S sudo	<span class="comment">#成功</span></span><br></pre></td></tr></table></figure></p>
+<p>安装screenfetch<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pacman -S screenfetch</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2018/10/29/RasPi-3b-安装arch-Linux-arm/c.png" alt="c"></p>
+<hr>
+<p>后续配置完善中……</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/树莓派/" rel="tag"># 树莓派</a>
+          
+            <a href="/tags/arch-Linux/" rel="tag"># arch Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/26/C指针简介/" rel="next" title="C指针简介">
+                <i class="fa fa-chevron-left"></i> C指针简介
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/25/css导航栏水平居中/" rel="prev" title="css导航栏水平居中">
+                css导航栏水平居中 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Lyx</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#准备工具"><span class="nav-number">1.</span> <span class="nav-text">准备工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#烧录系统"><span class="nav-number">2.</span> <span class="nav-text">烧录系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#sd卡分区"><span class="nav-number">2.1.</span> <span class="nav-text">sd卡分区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#挂载与安装"><span class="nav-number">2.2.</span> <span class="nav-text">挂载与安装</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#树莓派连接笔记本"><span class="nav-number">3.</span> <span class="nav-text">树莓派连接笔记本</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ssh连接"><span class="nav-number">3.1.</span> <span class="nav-text">ssh连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#改源更新安装"><span class="nav-number">3.2.</span> <span class="nav-text">改源更新安装</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lyx</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"right","width":175,"height":325},"mobile":{"show":true},"log":false});</script></body>
+</html>
