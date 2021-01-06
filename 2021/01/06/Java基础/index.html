@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2021/01/06/Java基础/D:/Notes/Java/images/java基础内部类2.png">
 <meta property="og:image" content="http://yoursite.com/2021/01/06/Java基础/D:/Notes/Java/images/java基础内部类1.png">
-<meta property="og:updated_time" content="2021-01-06T09:08:41.443Z">
+<meta property="og:updated_time" content="2021-01-06T09:20:04.120Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础">
 <meta name="twitter:description" content="安装Java开发环境一、JDK下载安装 ​    官网下载jdk8 二、环境变量的配置     变量名 变量值     JAVA_HOME D:\JAVA\jdk1.8.0_172(自己的jdk安装路径)   JRE_HOME %JAVA_HOME%\jre   CLASSPATH .;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;   PATH">
@@ -511,14 +511,10 @@
   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Integer i = <span class="keyword">new</span> Integer(<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
 <p>从Java SE5开始就提供了自动装箱的特性，如果要生成一个数值为10的Integer对象，只需要这样就可以了：</p>
   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Integer i = <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p><strong>装箱</strong>：将基本类型用它们对应的引用类型包装起来</p>
+<p><strong>装箱</strong>：将基本类型用它们对应的引用类型包装起来</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Integer i = <span class="number">10</span>;  <span class="comment">//装箱</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>拆箱</strong>：将包装类型转换为基本数据类型</p>
+<p><strong>拆箱</strong>：将包装类型转换为基本数据类型</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n = i;   <span class="comment">//拆箱</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
 <p><del>看上去挺简单，实则不然。更多内容待补充…</del></p>
 <h3 id="Java常见关键字"><a href="#Java常见关键字" class="headerlink" title="Java常见关键字"></a>Java常见关键字</h3><div class="table-container">
 <table>
@@ -666,8 +662,7 @@
 <li>方法级和块级的变量没有默认的初始值，必须被显示地初始化，否则不能访问</li>
 </ol>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">VariableScope</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String name = <span class="string">"Class-level variables"</span>; <span class="comment">// 类级变量,static修饰</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> i; <span class="comment">// 对象实例级变量</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 属性块，在类初始化属性时候运行</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">2</span>;<span class="comment">// 块级变量</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">methodTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">3</span>; <span class="comment">// 方法级变量</span></span><br><span class="line">        <span class="keyword">if</span> (j == <span class="number">3</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> k = <span class="number">5</span>; <span class="comment">// 块级变量</span></span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"name="</span> + name + <span class="string">", i="</span> + i + <span class="string">", j="</span> + j);</span><br><span class="line">        <span class="comment">// 这里不能访问块级变量，块级变量只能在块内部访问</span></span><br><span class="line">        <span class="comment">//System.out.println("k="+k);</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 不创建对象，直接通过类名访问类级变量</span></span><br><span class="line">        System.out.println(VariableScope.name);</span><br><span class="line">        <span class="comment">// 创建对象并访问它的方法</span></span><br><span class="line">        VariableScope v = <span class="keyword">new</span> VariableScope();</span><br><span class="line">        v.methodTest();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Java注释与JavaDoc"><a href="#Java注释与JavaDoc" class="headerlink" title="Java注释与JavaDoc"></a>Java注释与JavaDoc</h3><hr>
-<p><strong>Java中的注释：</strong></p>
+<h3 id="Java注释与JavaDoc"><a href="#Java注释与JavaDoc" class="headerlink" title="Java注释与JavaDoc"></a>Java注释与JavaDoc</h3><p><strong>Java中的注释：</strong></p>
 <ol>
 <li>单行注释//</li>
 <li>多行注释/*…*/</li>
@@ -685,16 +680,14 @@
 </ul>
 <p><strong>通过DOS命令执行生成javadoc文档：</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Doc.java为需要生成javadoc文档的程序名</span></span><br><span class="line">javadoc -encoding UTF-8 -charset UTF-8 Doc.java</span><br></pre></td></tr></table></figure>
-<h3 id="方法的重载"><a href="#方法的重载" class="headerlink" title="方法的重载"></a>方法的重载</h3><hr>
-<p><strong>重载：</strong>在同一个类中，不同的函数使用相同的函数名，但是函数的形参个数或类型不同</p>
+<h3 id="方法的重载"><a href="#方法的重载" class="headerlink" title="方法的重载"></a>方法的重载</h3><p><strong>重载：</strong>在同一个类中，不同的函数使用相同的函数名，但是函数的形参个数或类型不同</p>
 <p><strong>实现理论：</strong>方法名称相同时，编译器会根据调用方法的参数个数、参数类型等逐个匹配，以选择对应的方法，若匹配失败，则编译器报错</p>
 <p><strong>注意点：</strong></p>
 <ol>
 <li>方法的返回类型可以相同，也可以不同</li>
 <li>重载的方法必须拥有不同的参数列表，而不能仅仅依据修饰符或者返回类型的不同来重载方法</li>
 </ol>
-<h3 id="Java可变参数"><a href="#Java可变参数" class="headerlink" title="Java可变参数"></a>Java可变参数</h3><hr>
-<p>java可变参数是1.5版本之后的新特性</p>
+<h3 id="Java可变参数"><a href="#Java可变参数" class="headerlink" title="Java可变参数"></a>Java可变参数</h3><p>java可变参数是1.5版本之后的新特性</p>
 <ol>
 <li>可变参数本质就是动态创建的数组</li>
 <li>一个方法可以有可变参数和普通参数，但是可变参数必须放到参数列表末尾</li>
