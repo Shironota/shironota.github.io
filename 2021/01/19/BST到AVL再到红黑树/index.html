@@ -96,7 +96,7 @@
 <meta property="og:image" content="http://yoursite.com/2021/01/19/BST到AVL再到红黑树/RBT_analysis2.png">
 <meta property="og:image" content="http://yoursite.com/2021/01/19/BST到AVL再到红黑树/RBT_analysis.png">
 <meta property="og:image" content="http://yoursite.com/2021/01/19/BST到AVL再到红黑树/RBT_time.png">
-<meta property="og:updated_time" content="2021-01-19T06:46:27.418Z">
+<meta property="og:updated_time" content="2021-01-19T07:23:49.477Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BST到AVL再到红黑树">
 <meta name="twitter:description" content="二叉搜索树特点二叉树的一个重要应用就是用于解决查找问题，二叉搜索树（Binary Search Tree）是满足这样一个条件的二叉树：对于树中的每个节点X，它的左子树中所有关键字值小于X的关键字值，而它的右子树中所有关键字值大于X的关键字值  复杂度分析查找 例如要查找数值7，查找的过程如下：  7与根节点6比较，7 &amp;gt; 6，进入右子树 7与根节点8比较，7 &amp;lt; 8，进入左子树 7与根">
@@ -859,6 +859,26 @@ O(2*log_2n(b)) -> O(2*log_2\frac{n}{2}) -> O(log_2\frac{n}{2}) -> O(log_2n-1) ->
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
