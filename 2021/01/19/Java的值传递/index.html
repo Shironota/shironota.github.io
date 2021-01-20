@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="为什么Java只有值传递C语言本身只支持值传递，它的衍生品C++既支持值传递，也支持引用传递，而Java只支持值传递。 几个错误的认知： 认为值传递和引用传递的区分条件是传递的内容，如果传递的是值，就是值传递，传递的是个引用，就是引用传递 认为传递的参数是基本数据类型，就是值传递，传递的参数是对象，就是引用传递  形参与实参 形式参数：是在定义函数名和函数体的时候使用的参数，目的是用来接收调用该函">
+<meta name="description" content="C语言本身只支持值传递，它的衍生品C++既支持值传递，也支持引用传递，而Java只支持值传递。 几个错误的认知： 认为值传递和引用传递的区分条件是传递的内容，如果传递的是值，就是值传递，传递的是个引用，就是引用传递 认为传递的参数是基本数据类型，就是值传递，传递的参数是对象，就是引用传递  形参与实参 形式参数：是在定义函数名和函数体的时候使用的参数，目的是用来接收调用该函数时传入的参数 实际参数">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java的值传递">
 <meta property="og:url" content="http://yoursite.com/2021/01/19/Java的值传递/index.html">
 <meta property="og:site_name" content="Piccolo_Devil">
-<meta property="og:description" content="为什么Java只有值传递C语言本身只支持值传递，它的衍生品C++既支持值传递，也支持引用传递，而Java只支持值传递。 几个错误的认知： 认为值传递和引用传递的区分条件是传递的内容，如果传递的是值，就是值传递，传递的是个引用，就是引用传递 认为传递的参数是基本数据类型，就是值传递，传递的参数是对象，就是引用传递  形参与实参 形式参数：是在定义函数名和函数体的时候使用的参数，目的是用来接收调用该函">
+<meta property="og:description" content="C语言本身只支持值传递，它的衍生品C++既支持值传递，也支持引用传递，而Java只支持值传递。 几个错误的认知： 认为值传递和引用传递的区分条件是传递的内容，如果传递的是值，就是值传递，传递的是个引用，就是引用传递 认为传递的参数是基本数据类型，就是值传递，传递的参数是对象，就是引用传递  形参与实参 形式参数：是在定义函数名和函数体的时候使用的参数，目的是用来接收调用该函数时传入的参数 实际参数">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2021/01/19/Java的值传递/值传递.png">
 <meta property="og:image" content="http://yoursite.com/2021/01/19/Java的值传递/值传递2.png">
-<meta property="og:updated_time" content="2021-01-19T15:18:35.520Z">
+<meta property="og:updated_time" content="2021-01-20T08:51:53.046Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java的值传递">
-<meta name="twitter:description" content="为什么Java只有值传递C语言本身只支持值传递，它的衍生品C++既支持值传递，也支持引用传递，而Java只支持值传递。 几个错误的认知： 认为值传递和引用传递的区分条件是传递的内容，如果传递的是值，就是值传递，传递的是个引用，就是引用传递 认为传递的参数是基本数据类型，就是值传递，传递的参数是对象，就是引用传递  形参与实参 形式参数：是在定义函数名和函数体的时候使用的参数，目的是用来接收调用该函">
+<meta name="twitter:description" content="C语言本身只支持值传递，它的衍生品C++既支持值传递，也支持引用传递，而Java只支持值传递。 几个错误的认知： 认为值传递和引用传递的区分条件是传递的内容，如果传递的是值，就是值传递，传递的是个引用，就是引用传递 认为传递的参数是基本数据类型，就是值传递，传递的参数是对象，就是引用传递  形参与实参 形式参数：是在定义函数名和函数体的时候使用的参数，目的是用来接收调用该函数时传入的参数 实际参数">
 <meta name="twitter:image" content="http://yoursite.com/2021/01/19/Java的值传递/值传递.png">
 
 
@@ -346,7 +346,7 @@
       
 
       
-        <h3 id="为什么Java只有值传递"><a href="#为什么Java只有值传递" class="headerlink" title="为什么Java只有值传递"></a>为什么Java只有值传递</h3><p>C语言本身只支持值传递，它的衍生品C++既支持值传递，也支持引用传递，而Java只支持值传递。</p>
+        <p>C语言本身只支持值传递，它的衍生品C++既支持值传递，也支持引用传递，而Java只支持值传递。</p>
 <h4 id="几个错误的认知："><a href="#几个错误的认知：" class="headerlink" title="几个错误的认知："></a>几个错误的认知：</h4><ul>
 <li>认为值传递和引用传递的区分条件是传递的内容，如果传递的是值，就是值传递，传递的是个引用，就是引用传递</li>
 <li>认为传递的参数是基本数据类型，就是值传递，传递的参数是对象，就是引用传递</li>
@@ -545,7 +545,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么Java只有值传递"><span class="nav-number">1.</span> <span class="nav-text">为什么Java只有值传递</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#几个错误的认知："><span class="nav-number">1.1.</span> <span class="nav-text">几个错误的认知：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#形参与实参"><span class="nav-number">1.2.</span> <span class="nav-text">形参与实参</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#值传递与引用传递"><span class="nav-number">1.3.</span> <span class="nav-text">值传递与引用传递</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#案例分析"><span class="nav-number">1.4.</span> <span class="nav-text">案例分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">1.5.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#References"><span class="nav-number">1.6.</span> <span class="nav-text">References</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#几个错误的认知："><span class="nav-number">1.</span> <span class="nav-text">几个错误的认知：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#形参与实参"><span class="nav-number">2.</span> <span class="nav-text">形参与实参</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#值传递与引用传递"><span class="nav-number">3.</span> <span class="nav-text">值传递与引用传递</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#案例分析"><span class="nav-number">4.</span> <span class="nav-text">案例分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#References"><span class="nav-number">6.</span> <span class="nav-text">References</span></a></li></ol></div>
             
 
           </div>
