@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Java," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="垃圾回收的概念Java中的对象基本都存在堆区，堆区虽然很大，但存放对象的数量也是有限的，所以需要及时的清理那些不会再被使用到的对象，释放出内存空间以供其他对象使用 判断是否为垃圾引用计数法从垃圾的定义出发，不会再被其他对象引用的对象被判定为垃圾 那么最简单想到的一个方法就是统计该对象的引用个数，有新的变量引用该对象时，该对象的引用个数加1；反之该对象的一个引用失效时，引用个数减1。引用个数为0的对">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GC垃圾回收">
+<meta property="og:url" content="http://yoursite.com/2021/03/03/GC垃圾回收/index.html">
+<meta property="og:site_name" content="妖精仓库">
+<meta property="og:description" content="垃圾回收的概念Java中的对象基本都存在堆区，堆区虽然很大，但存放对象的数量也是有限的，所以需要及时的清理那些不会再被使用到的对象，释放出内存空间以供其他对象使用 判断是否为垃圾引用计数法从垃圾的定义出发，不会再被其他对象引用的对象被判定为垃圾 那么最简单想到的一个方法就是统计该对象的引用个数，有新的变量引用该对象时，该对象的引用个数加1；反之该对象的一个引用失效时，引用个数减1。引用个数为0的对">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2021/03/03/GC垃圾回收/GC.png">
+<meta property="og:updated_time" content="2021-03-03T16:00:08.642Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GC垃圾回收">
+<meta name="twitter:description" content="垃圾回收的概念Java中的对象基本都存在堆区，堆区虽然很大，但存放对象的数量也是有限的，所以需要及时的清理那些不会再被使用到的对象，释放出内存空间以供其他对象使用 判断是否为垃圾引用计数法从垃圾的定义出发，不会再被其他对象引用的对象被判定为垃圾 那么最简单想到的一个方法就是统计该对象的引用个数，有新的变量引用该对象时，该对象的引用个数加1；反之该对象的一个引用失效时，引用个数减1。引用个数为0的对">
+<meta name="twitter:image" content="http://yoursite.com/2021/03/03/GC垃圾回收/GC.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2021/03/03/GC垃圾回收/"/>
+
+
+
+
+
+  <title>GC垃圾回收 | 妖精仓库</title>
+  
+
+
+
+
+
+
+
+
+  <!-- 把这段代码加入 themes/next/layout/_layout.swig 的 </body> 前 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"><a href="https://github.com/Shironota" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">妖精仓库</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/03/03/GC垃圾回收/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="PiccoloDevil">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="妖精仓库">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">GC垃圾回收</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-03T23:59:00+08:00">
+                2021-03-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                1.4k 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="垃圾回收的概念"><a href="#垃圾回收的概念" class="headerlink" title="垃圾回收的概念"></a>垃圾回收的概念</h3><p>Java中的对象基本都存在堆区，堆区虽然很大，但存放对象的数量也是有限的，所以需要及时的清理那些不会再被使用到的对象，释放出内存空间以供其他对象使用</p>
+<h3 id="判断是否为垃圾"><a href="#判断是否为垃圾" class="headerlink" title="判断是否为垃圾"></a>判断是否为垃圾</h3><h4 id="引用计数法"><a href="#引用计数法" class="headerlink" title="引用计数法"></a>引用计数法</h4><p>从垃圾的定义出发，不会再被其他对象引用的对象被判定为垃圾</p>
+<p>那么最简单想到的一个方法就是统计该对象的引用个数，有新的变量引用该对象时，该对象的引用个数加1；反之该对象的一个引用失效时，引用个数减1。引用个数为0的对象被视为是垃圾，需要被回收</p>
+<p>上面内容还需要说明一个问题，引用失效怎么理解？最简单的，引用指向该对象后，设为了null，那么这个引用就相当于丢失了与这个对象的关联，自然就失效了。还有一个场景，一个垃圾对象的成员变量引用了其他对象，当这个垃圾对象被回收时，它的成员变量这个引用自然也就失效了</p>
+<p>但是这个方法有一个严重的缺陷，那就是当两个对象相互引用的时候，会导致循环引用而无法被回收，造成内存泄漏</p>
+<p>因此这个方法已经基本不再被使用了</p>
+<h4 id="可达性分析"><a href="#可达性分析" class="headerlink" title="可达性分析"></a>可达性分析</h4><p>在这个方法中，有个GC Roots的概念，GC会收集那些不是GC Roots且没有被GC Roots引用的对象。即被GC Roots直接或间接引用的对象不会被删除</p>
+<p>那么有哪些GC Roots呢？常见的有：栈、本地方法栈、方法区</p>
+<p>简单说明下原因：</p>
+<ul>
+<li>栈中存放的是当前正在运行的局部变量、函数、对象引用等，正在运行肯定是不能被删除的</li>
+<li>本地方法栈中存放的是native方法，调用更底层的C/C++代码，肯定不能被删除</li>
+<li>方法区存的是一些全局的变量，无法确定以后还会不会被用到，所以也不能删除</li>
+</ul>
+<p>更多关于GC Roots的内容可参见：</p>
+<p><a href="https://help.eclipse.org/2020-12/index.jsp?topic=%2Forg.eclipse.mat.ui.help%2Fconcepts%2Fgcroots.html&amp;cp=37_2_3" target="_blank" rel="noopener">https://help.eclipse.org/2020-12/index.jsp?topic=%2Forg.eclipse.mat.ui.help%2Fconcepts%2Fgcroots.html&amp;cp=37_2_3</a></p>
+<h3 id="GC的三种思路"><a href="#GC的三种思路" class="headerlink" title="GC的三种思路"></a>GC的三种思路</h3><h4 id="标记—清理"><a href="#标记—清理" class="headerlink" title="标记—清理"></a>标记—清理</h4><p>最简单的一种思路，利用可达性分析，将GC Roots直接或间接引用的对象标记上，被标记的对象不能被删除</p>
+<p>然后清理阶段，把没有被标记的对象清理掉</p>
+<p>缺点：会产生内存碎片</p>
+<h4 id="标记—整理"><a href="#标记—整理" class="headerlink" title="标记—整理"></a>标记—整理</h4><p>为了解决内存碎片问题，每清理掉一个垃圾，后面的对象就往前面凑紧，即整理</p>
+<p>缺点：代价太大，效率低</p>
+<h4 id="复制"><a href="#复制" class="headerlink" title="复制"></a>复制</h4><p>和前两种思路不同，复制算法直接申请两块一样大的内存，在其中一块进行GC，清理掉垃圾后，将不被回收的对象紧凑的复制到另一块内存</p>
+<p>这种做法即避免了产生内存碎片，同时效率也不会太低</p>
+<p>但显而易见的缺点：需要两倍的内存开销</p>
+<h3 id="实际的GC机制"><a href="#实际的GC机制" class="headerlink" title="实际的GC机制"></a>实际的GC机制</h3><p>将堆区进行了划分，一部分叫Young区（新生代），另一部分叫old区（老年代）</p>
+<p>Young区又分为三部分：Eden（译为伊甸园，即产生对象的区域）、From survivor、To survivor</p>
+<p><img src="/2021/03/03/GC垃圾回收/GC.png" alt="GC"></p>
+<h4 id="Young区（新生代）"><a href="#Young区（新生代）" class="headerlink" title="Young区（新生代）"></a>Young区（新生代）</h4><p>new对象发生在E区，满了触发Young GC</p>
+<p>Young GC采用的是“复制”算法</p>
+<blockquote>
+<p>IBM有专门研究表明新生代中的对象98%是朝生夕死的</p>
+<p>在堆中，尤其是在新生代，常规应用进行一次GC一般可以回收70%~95%的空间</p>
+</blockquote>
+<p>因为对象的朝生夕死特征，Young区的划分大小比例为：</p>
+<p>S0：S1：E ≈ 1：1：8</p>
+<p>为什么需要两个survivor区呢？因为S0区和S1区是交替工作的，这样的做法比直接将Young区一分为二的利用率要高一些</p>
+<p>模拟下Young GC的过程：</p>
+<ol>
+<li>E区存放new对象，满了触发Young GC</li>
+<li>Young GC采用复制算法，标记E区中的存活对象，然后紧凑的复制到S0区</li>
+<li>将E区和S1区全部清理删除</li>
+<li>等下一次E区快满了的时候，将E区的存活对象和S0区标记并复制到S1区</li>
+<li>如此循环往复…</li>
+</ol>
+<p>思考个问题，E区和S0区的所有存活对象都可以复制到S1区吗？S1区能放下这么多对象吗？</p>
+<p>答案是，S1区是有可能放不下所有的存活对象的，这时候会直接放到old区</p>
+<h4 id="old区（老年代）"><a href="#old区（老年代）" class="headerlink" title="old区（老年代）"></a>old区（老年代）</h4><p>每次Young GC中存活下来的对象，年龄就加1，当年龄等于6时，就不再往survivor区复制，而是直接进到old区</p>
+<p>因为一个对象要是能在6次的GC中存活下来，那么认为它很有可能会一直存活下去</p>
+<p>old区还存放大对象，因为大对象如果在Young区往复复制的话，消耗是很大的</p>
+<p>当old区满了，也会触发GC，此时的old GC往往伴随着Young GC进行，故也叫Full GC</p>
+<p>Full GC会引起stop the world（STW）现象，即整个Java程序暂停，全力的进行垃圾回收（此时主要采取的是标记—清理或标记—整理的算法）</p>
+<h3 id="垃圾收集器"><a href="#垃圾收集器" class="headerlink" title="垃圾收集器"></a>垃圾收集器</h3><p>ParNew</p>
+<p>CMS</p>
+<p>G1</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/03/03/JVM内存结构/" rel="next" title="JVM内存结构">
+                <i class="fa fa-chevron-left"></i> JVM内存结构
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/03/04/可见性与原子性/" rel="prev" title="可见性与原子性">
+                可见性与原子性 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="PiccoloDevil" />
+            
+              <p class="site-author-name" itemprop="name">PiccoloDevil</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#垃圾回收的概念"><span class="nav-number">1.</span> <span class="nav-text">垃圾回收的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断是否为垃圾"><span class="nav-number">2.</span> <span class="nav-text">判断是否为垃圾</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#引用计数法"><span class="nav-number">2.1.</span> <span class="nav-text">引用计数法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可达性分析"><span class="nav-number">2.2.</span> <span class="nav-text">可达性分析</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GC的三种思路"><span class="nav-number">3.</span> <span class="nav-text">GC的三种思路</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#标记—清理"><span class="nav-number">3.1.</span> <span class="nav-text">标记—清理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标记—整理"><span class="nav-number">3.2.</span> <span class="nav-text">标记—整理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复制"><span class="nav-number">3.3.</span> <span class="nav-text">复制</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实际的GC机制"><span class="nav-number">4.</span> <span class="nav-text">实际的GC机制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Young区（新生代）"><span class="nav-number">4.1.</span> <span class="nav-text">Young区（新生代）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#old区（老年代）"><span class="nav-number">4.2.</span> <span class="nav-text">old区（老年代）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垃圾收集器"><span class="nav-number">5.</span> <span class="nav-text">垃圾收集器</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">PiccoloDevil</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">77.8k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"right","width":175,"height":325},"mobile":{"show":true},"log":false});</script></body>
+</html>

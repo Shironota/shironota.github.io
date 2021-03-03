@@ -88,7 +88,7 @@
 <meta property="og:description" content="Java虚拟机（JVM）拿到了自己能支配的内存之后，将内存进行了割分，分为以下五个区域：  JVM栈存储局部变量表、操作数栈、动态链接、方法出口、对象引用等 JVM栈中的元素被称为栈帧，方法开始执行时，对应的栈帧入栈，方法执行结束，栈帧出栈，对应内存空间被回收 线程私有 本地方法栈管理本地方法的调用，本地方法即native方法，即Java调用非Java代码的接口 线程私有 程序计数器用于存放下一条">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2021/03/03/JVM内存结构/JVM内存结构.png">
-<meta property="og:updated_time" content="2021-03-03T03:29:09.015Z">
+<meta property="og:updated_time" content="2021-03-03T03:32:24.317Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JVM内存结构">
 <meta name="twitter:description" content="Java虚拟机（JVM）拿到了自己能支配的内存之后，将内存进行了割分，分为以下五个区域：  JVM栈存储局部变量表、操作数栈、动态链接、方法出口、对象引用等 JVM栈中的元素被称为栈帧，方法开始执行时，对应的栈帧入栈，方法执行结束，栈帧出栈，对应内存空间被回收 线程私有 本地方法栈管理本地方法的调用，本地方法即native方法，即Java调用非Java代码的接口 线程私有 程序计数器用于存放下一条">
@@ -378,18 +378,18 @@
       
         <p>Java虚拟机（JVM）拿到了自己能支配的内存之后，将内存进行了割分，分为以下五个区域：</p>
 <p><img src="/2021/03/03/JVM内存结构/JVM内存结构.png" alt="JVM内存结构"></p>
-<h4 id="JVM栈"><a href="#JVM栈" class="headerlink" title="JVM栈"></a>JVM栈</h4><p>存储局部变量表、操作数栈、动态链接、方法出口、对象引用等</p>
+<h3 id="JVM栈"><a href="#JVM栈" class="headerlink" title="JVM栈"></a>JVM栈</h3><p>存储局部变量表、操作数栈、动态链接、方法出口、对象引用等</p>
 <p>JVM栈中的元素被称为栈帧，方法开始执行时，对应的栈帧入栈，方法执行结束，栈帧出栈，对应内存空间被回收</p>
 <p><strong>线程私有</strong></p>
-<h4 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h4><p>管理本地方法的调用，本地方法即native方法，即Java调用非Java代码的接口</p>
+<h3 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h3><p>管理本地方法的调用，本地方法即native方法，即Java调用非Java代码的接口</p>
 <p><strong>线程私有</strong></p>
-<h4 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h4><p>用于存放下一条指令所在单元的地址，保证程序能正常执行下去</p>
+<h3 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h3><p>用于存放下一条指令所在单元的地址，保证程序能正常执行下去</p>
 <p>在多线程环境下，由于采用时间片轮转方式，故需记录当前线程执行的位置，切换回来才知道上次运行到哪了</p>
 <p><strong>线程私有</strong></p>
-<h4 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h4><p>最大的一块区域，用来存对象</p>
+<h3 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h3><p>最大的一块区域，用来存对象</p>
 <p>GC垃圾回收的主要区域</p>
 <p><strong>线程共享</strong></p>
-<h4 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h4><p>JDK8之前也叫永久代，使用的是JVM的内存空间；JDK8之后改名为元空间，使用的是本地内存，即能加载多少类，取决于本地内存大小</p>
+<h3 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h3><p>JDK8之前也叫永久代，使用的是JVM的内存空间；JDK8之后改名为元空间，使用的是本地内存，即能加载多少类，取决于本地内存大小</p>
 <p>主要存储一些静态的方法或变量、常量、类信息（构造方法/接口定义）、运行时常量池</p>
 <p><strong>线程共享</strong></p>
 
@@ -431,6 +431,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/03/03/GC垃圾回收/" rel="prev" title="GC垃圾回收">
+                GC垃圾回收 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -511,7 +515,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -566,7 +570,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#JVM栈"><span class="nav-number">1.</span> <span class="nav-text">JVM栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#本地方法栈"><span class="nav-number">2.</span> <span class="nav-text">本地方法栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#程序计数器"><span class="nav-number">3.</span> <span class="nav-text">程序计数器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#堆"><span class="nav-number">4.</span> <span class="nav-text">堆</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法区"><span class="nav-number">5.</span> <span class="nav-text">方法区</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#JVM栈"><span class="nav-number">1.</span> <span class="nav-text">JVM栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地方法栈"><span class="nav-number">2.</span> <span class="nav-text">本地方法栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序计数器"><span class="nav-number">3.</span> <span class="nav-text">程序计数器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#堆"><span class="nav-number">4.</span> <span class="nav-text">堆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法区"><span class="nav-number">5.</span> <span class="nav-text">方法区</span></a></li></ol></div>
             
 
           </div>
@@ -600,7 +604,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">75.5k</span>
+    <span title="Site words total count">77.8k</span>
   
 </div>
 
